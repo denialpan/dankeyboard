@@ -5,35 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dankeyboard"
         mc:Ignorable="d"
-        Title="dankeyboard" Height="600" Width="850" ResizeMode="NoResize" Background="White">
+        Title="dankeyboard" Height="600" Width="957
+        " ResizeMode="NoResize" Background="White">
     <Grid>
         <TabControl>
             <TabItem Header="keyboard">
                 <Grid Background="#FFE5E5E5">
-                    <Rectangle x:Name="Key_Tilde" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35" Fill="Red"/>
-                    <Rectangle x:Name="Key_Tilde_Copy" HorizontalAlignment="Left" Height="35" Margin="50,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy1" HorizontalAlignment="Left" Height="35" Margin="89,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy2" HorizontalAlignment="Left" Height="35" Margin="128,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy3" HorizontalAlignment="Left" Height="35" Margin="167,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy4" HorizontalAlignment="Left" Height="35" Margin="206,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy5" HorizontalAlignment="Left" Height="35" Margin="245,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy6" HorizontalAlignment="Left" Height="35" Margin="284,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy7" HorizontalAlignment="Left" Height="35" Margin="323,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy8" HorizontalAlignment="Left" Height="35" Margin="362,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy9" HorizontalAlignment="Left" Height="35" Margin="401,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy10" HorizontalAlignment="Left" Height="35" Margin="440,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy11" HorizontalAlignment="Left" Height="35" Margin="479,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy12" HorizontalAlignment="Left" Height="35" Margin="518,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy13" HorizontalAlignment="Left" Height="35" Margin="557,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy14" HorizontalAlignment="Left" Height="35" Margin="596,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy1" HorizontalAlignment="Left" Height="35" Margin="81,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy2" HorizontalAlignment="Left" Height="35" Margin="120,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy3" HorizontalAlignment="Left" Height="35" Margin="159,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy4" HorizontalAlignment="Left" Height="35" Margin="198,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy6" HorizontalAlignment="Left" Height="35" Margin="270,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy7" HorizontalAlignment="Left" Height="35" Margin="309,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy8" HorizontalAlignment="Left" Height="35" Margin="348,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy9" HorizontalAlignment="Left" Height="35" Margin="387,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy11" HorizontalAlignment="Left" Height="35" Margin="458,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy12" HorizontalAlignment="Left" Height="35" Margin="497,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy13" HorizontalAlignment="Left" Height="35" Margin="536,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy14" HorizontalAlignment="Left" Height="35" Margin="575,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                     <Rectangle x:Name="Key_Tilde_Copy15" HorizontalAlignment="Left" Height="35" Margin="635,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                     <Rectangle x:Name="Key_Tilde_Copy16" HorizontalAlignment="Left" Height="35" Margin="674,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                     <Rectangle x:Name="Key_Tilde_Copy17" HorizontalAlignment="Left" Height="35" Margin="713,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy18" HorizontalAlignment="Left" Height="35" Margin="752,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="12,12,0,0" TextWrapping="Wrap" Text="`" VerticalAlignment="Top" Width="31" Height="31" TextAlignment="Center" FontSize="20"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="31" Height="31" TextAlignment="Center" FontSize="20"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="91,12,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="31" Height="31" TextAlignment="Center" FontSize="20"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="130,12,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="31" Height="31" TextAlignment="Center" FontSize="20"/>
+                    <Rectangle x:Name="Key_Tilde_Copy19" HorizontalAlignment="Left" Height="35" Margin="10,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy20" HorizontalAlignment="Left" Height="35" Margin="10,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="56"/>
+                    <Rectangle x:Name="Key_Tilde_Copy21" HorizontalAlignment="Left" Height="36" Margin="10,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+                    <Rectangle x:Name="Key_Tilde_Copy22" HorizontalAlignment="Left" Height="36" Margin="10,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="88"/>
+                    <Rectangle x:Name="Key_Tilde_Copy23" HorizontalAlignment="Left" Height="36" Margin="10,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Key_Tilde_Copy24" HorizontalAlignment="Left" Height="35" Margin="50,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy25" HorizontalAlignment="Left" Height="35" Margin="71,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy" HorizontalAlignment="Left" Height="35" Margin="90,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy5" HorizontalAlignment="Left" Height="35" Margin="130,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy10" HorizontalAlignment="Left" Height="35" Margin="170,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy26" HorizontalAlignment="Left" Height="35" Margin="210,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy27" HorizontalAlignment="Left" Height="35" Margin="250,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy28" HorizontalAlignment="Left" Height="35" Margin="290,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy29" HorizontalAlignment="Left" Height="35" Margin="330,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy30" HorizontalAlignment="Left" Height="35" Margin="370,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy31" HorizontalAlignment="Left" Height="35" Margin="410,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy32" HorizontalAlignment="Left" Height="35" Margin="450,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy33" HorizontalAlignment="Left" Height="35" Margin="490,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy34" HorizontalAlignment="Left" Height="35" Margin="530,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+                    <Rectangle x:Name="Key_Tilde_Copy35" HorizontalAlignment="Left" Height="35" Margin="111,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy37" HorizontalAlignment="Left" Height="35" Margin="151,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy38" HorizontalAlignment="Left" Height="35" Margin="191,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy39" HorizontalAlignment="Left" Height="35" Margin="231,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy40" HorizontalAlignment="Left" Height="35" Margin="271,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy41" HorizontalAlignment="Left" Height="35" Margin="311,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy42" HorizontalAlignment="Left" Height="35" Margin="351,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy43" HorizontalAlignment="Left" Height="35" Margin="391,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy44" HorizontalAlignment="Left" Height="35" Margin="431,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy45" HorizontalAlignment="Left" Height="35" Margin="471,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy46" HorizontalAlignment="Left" Height="35" Margin="511,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy47" HorizontalAlignment="Left" Height="35" Margin="551,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="59"/>
+                    <Rectangle x:Name="Key_Tilde_Copy36" HorizontalAlignment="Left" Height="35" Margin="90,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy48" HorizontalAlignment="Left" Height="35" Margin="130,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy49" HorizontalAlignment="Left" Height="35" Margin="170,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy50" HorizontalAlignment="Left" Height="35" Margin="210,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy51" HorizontalAlignment="Left" Height="35" Margin="250,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy52" HorizontalAlignment="Left" Height="35" Margin="290,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy53" HorizontalAlignment="Left" Height="35" Margin="330,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy54" HorizontalAlignment="Left" Height="35" Margin="370,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy55" HorizontalAlignment="Left" Height="35" Margin="410,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy56" HorizontalAlignment="Left" Height="35" Margin="450,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy57" HorizontalAlignment="Left" Height="35" Margin="490,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy58" HorizontalAlignment="Left" Height="35" Margin="530,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+                    <Rectangle x:Name="Key_Tilde_Copy59" HorizontalAlignment="Left" Height="35" Margin="103,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy60" HorizontalAlignment="Left" Height="35" Margin="143,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy61" HorizontalAlignment="Left" Height="35" Margin="183,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy62" HorizontalAlignment="Left" Height="35" Margin="223,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy63" HorizontalAlignment="Left" Height="35" Margin="263,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy64" HorizontalAlignment="Left" Height="35" Margin="303,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy65" HorizontalAlignment="Left" Height="35" Margin="343,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy66" HorizontalAlignment="Left" Height="35" Margin="383,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy67" HorizontalAlignment="Left" Height="35" Margin="423,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy68" HorizontalAlignment="Left" Height="35" Margin="463,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy69" HorizontalAlignment="Left" Height="35" Margin="503,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="107"/>
+                    <Rectangle x:Name="Key_Tilde_Copy70" HorizontalAlignment="Left" Height="35" Margin="66,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Key_Tilde_Copy71" HorizontalAlignment="Left" Height="35" Margin="122,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="274"/>
+                    <Rectangle x:Name="Key_Tilde_Copy72" HorizontalAlignment="Left" Height="35" Margin="401,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Key_Tilde_Copy73" HorizontalAlignment="Left" Height="35" Margin="457,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Key_Tilde_Copy74" HorizontalAlignment="Left" Height="35" Margin="513,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Key_Tilde_Copy75" HorizontalAlignment="Left" Height="35" Margin="569,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
+                    <Rectangle x:Name="Key_Tilde_Copy18" HorizontalAlignment="Left" Height="35" Margin="635,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy76" HorizontalAlignment="Left" Height="35" Margin="674,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy77" HorizontalAlignment="Left" Height="35" Margin="713,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy78" HorizontalAlignment="Left" Height="35" Margin="635,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy79" HorizontalAlignment="Left" Height="35" Margin="674,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy80" HorizontalAlignment="Left" Height="35" Margin="713,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy81" HorizontalAlignment="Left" Height="35" Margin="635,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy82" HorizontalAlignment="Left" Height="35" Margin="674,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy83" HorizontalAlignment="Left" Height="35" Margin="713,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy84" HorizontalAlignment="Left" Height="35" Margin="674,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy85" HorizontalAlignment="Left" Height="35" Margin="773,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy86" HorizontalAlignment="Left" Height="35" Margin="812,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy87" HorizontalAlignment="Left" Height="35" Margin="851,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy88" HorizontalAlignment="Left" Height="35" Margin="890,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy89" HorizontalAlignment="Left" Height="35" Margin="773,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy90" HorizontalAlignment="Left" Height="35" Margin="812,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy91" HorizontalAlignment="Left" Height="35" Margin="851,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy92" HorizontalAlignment="Left" Height="35" Margin="890,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy97" HorizontalAlignment="Left" Height="35" Margin="773,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy98" HorizontalAlignment="Left" Height="35" Margin="812,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy99" HorizontalAlignment="Left" Height="35" Margin="851,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy100" HorizontalAlignment="Left" Height="35" Margin="890,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy93" HorizontalAlignment="Left" Height="35" Margin="773,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy94" HorizontalAlignment="Left" Height="35" Margin="812,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy95" HorizontalAlignment="Left" Height="35" Margin="851,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy96" HorizontalAlignment="Left" Height="35" Margin="890,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy101" HorizontalAlignment="Left" Height="35" Margin="773,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy102" HorizontalAlignment="Left" Height="35" Margin="812,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy103" HorizontalAlignment="Left" Height="35" Margin="851,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Key_Tilde_Copy104" HorizontalAlignment="Left" Height="35" Margin="890,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                 </Grid>
             </TabItem>
             <TabItem Header="monitor">
