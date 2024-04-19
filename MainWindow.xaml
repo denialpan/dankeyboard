@@ -9,12 +9,13 @@
         " ResizeMode="NoResize" Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="79*"/>
-            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="380*"/>
+            <ColumnDefinition Width="44*"/>
         </Grid.ColumnDefinitions>
-        <TabControl Grid.ColumnSpan="2">
+        <TabControl Grid.ColumnSpan="3">
             <TabItem Header="keyboard">
-                <Grid Background="#FFE5E5E5">
+                <Grid x:Name="KeyboardTab" Background="#FFE5E5E5">
                     <Rectangle x:Name="Key_Escape" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                     <Rectangle x:Name="Key_F1" HorizontalAlignment="Left" Height="35" Margin="81,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
                     <Rectangle x:Name="Key_F2" HorizontalAlignment="Left" Height="35" Margin="120,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
