@@ -1,46 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace dankeyboard.src
 {
     public class KeyboardHeatmap {
 
-        public void color_heatmap(Grid keyboardGrid) {
+        private int totalKeyPresses = 0;
 
-            Color color = (Color)ColorConverter.ConvertFromString("#0077FF");
-
-            foreach (var rect in keyboardGrid.Children) {
-
-                if (rect is FrameworkElement frameworkElement && frameworkElement is Rectangle)
-                {
-                    Rectangle rectangle = (Rectangle)frameworkElement;
-
-                    switch (rectangle.Name) {
-
-                        case "Key_A":
-                            rectangle.Fill = new SolidColorBrush(color);
-                            break;
-                        case "Key_1":
-                            rectangle.Fill = new SolidColorBrush(color);
-                            break;
-                        default:
-                            break;
-
-                    }
-
-                }
-
+        public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys) {
+            // get total number of key presses
+            foreach (KeyValuePair<Key, int> key in keys) {
+                totalKeyPresses += key.Value;
             }
 
+            // loop through all keys and assign colors
+            foreach (KeyValuePair<Key, int> key in keys) {
+                
+                Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
+                Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * 10, 2));
+                double percentage = Math.Round(key.Value / (double)totalKeyPresses * 10, 2);
+                Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
+
+                if (rectangle != null)
+                {
+                    
+                    rectangle.Fill = new SolidColorBrush(color);
+                }
+                
+            }
         }
 
+        private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage)
+        {
+            if (percentage < 0 || percentage > 0.5)
+                percentage = 0.5;
+
+            // Convert hex strings to Color objects
+            System.Windows.Media.Color color1 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color1Hex);
+            System.Windows.Media.Color color2 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color2Hex);
+
+            byte r = (byte)(color1.R + (color2.R - color1.R) * percentage * 2);
+            byte g = (byte)(color1.G + (color2.G - color1.G) * percentage * 2);
+            byte b = (byte)(color1.B + (color2.B - color1.B) * percentage * 2);
+
+            return $"#{r:X2}{g:X2}{b:X2}";
+        }
     }
 }

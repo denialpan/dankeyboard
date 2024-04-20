@@ -16,110 +16,108 @@
         <TabControl Grid.ColumnSpan="3">
             <TabItem Header="keyboard">
                 <Grid x:Name="KeyboardTab" Background="#FFE5E5E5">
-                    <Rectangle x:Name="Key_Escape" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F1" HorizontalAlignment="Left" Height="35" Margin="81,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F2" HorizontalAlignment="Left" Height="35" Margin="120,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F3" HorizontalAlignment="Left" Height="35" Margin="159,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F4" HorizontalAlignment="Left" Height="35" Margin="198,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F5" HorizontalAlignment="Left" Height="35" Margin="270,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F6" HorizontalAlignment="Left" Height="35" Margin="309,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F7" HorizontalAlignment="Left" Height="35" Margin="348,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F8" HorizontalAlignment="Left" Height="35" Margin="387,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F9" HorizontalAlignment="Left" Height="35" Margin="456,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F10" HorizontalAlignment="Left" Height="35" Margin="496,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F11" HorizontalAlignment="Left" Height="35" Margin="535,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F12" HorizontalAlignment="Left" Height="35" Margin="575,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_PrintScreen" HorizontalAlignment="Left" Height="35" Margin="635,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ScrollLock" HorizontalAlignment="Left" Height="35" Margin="674,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_PauseBreak" HorizontalAlignment="Left" Height="35" Margin="713,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde" HorizontalAlignment="Left" Height="35" Margin="10,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tab" HorizontalAlignment="Left" Height="35" Margin="10,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="56"/>
-                    <Rectangle x:Name="Key_CapsLock" HorizontalAlignment="Left" Height="35" Margin="10,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
-                    <Rectangle x:Name="Key_ShiftL" HorizontalAlignment="Left" Height="35" Margin="10,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="88"/>
-                    <Rectangle x:Name="Key_ControlL" HorizontalAlignment="Left" Height="35" Margin="10,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                    <Rectangle x:Name="Key_1" HorizontalAlignment="Left" Height="35" Margin="50,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Q" HorizontalAlignment="Left" Height="35" Margin="71,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_2" HorizontalAlignment="Left" Height="35" Margin="90,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_3" HorizontalAlignment="Left" Height="35" Margin="130,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_4" HorizontalAlignment="Left" Height="35" Margin="170,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_5" HorizontalAlignment="Left" Height="35" Margin="210,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_6" HorizontalAlignment="Left" Height="35" Margin="250,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_7" HorizontalAlignment="Left" Height="35" Margin="290,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_8" HorizontalAlignment="Left" Height="35" Margin="330,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_9" HorizontalAlignment="Left" Height="35" Margin="370,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_0" HorizontalAlignment="Left" Height="35" Margin="410,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Minus" HorizontalAlignment="Left" Height="35" Margin="450,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Plus" HorizontalAlignment="Left" Height="35" Margin="490,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Backspace" HorizontalAlignment="Left" Height="35" Margin="530,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-                    <Rectangle x:Name="Key_W" HorizontalAlignment="Left" Height="35" Margin="111,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_E" HorizontalAlignment="Left" Height="35" Margin="151,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_R" HorizontalAlignment="Left" Height="35" Margin="191,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_T" HorizontalAlignment="Left" Height="35" Margin="231,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Y" HorizontalAlignment="Left" Height="35" Margin="271,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_U" HorizontalAlignment="Left" Height="35" Margin="311,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_I" HorizontalAlignment="Left" Height="35" Margin="351,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_O" HorizontalAlignment="Left" Height="35" Margin="391,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_P" HorizontalAlignment="Left" Height="35" Margin="431,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_LeftBracket" HorizontalAlignment="Left" Height="35" Margin="471,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_RightBracket" HorizontalAlignment="Left" Height="35" Margin="511,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Backslash" HorizontalAlignment="Left" Height="35" Margin="551,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="59"/>
-                    <Rectangle x:Name="Key_A" HorizontalAlignment="Left" Height="35" Margin="90,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_S" HorizontalAlignment="Left" Height="35" Margin="130,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_D" HorizontalAlignment="Left" Height="35" Margin="170,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_F" HorizontalAlignment="Left" Height="35" Margin="210,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_G" HorizontalAlignment="Left" Height="35" Margin="250,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_H" HorizontalAlignment="Left" Height="35" Margin="290,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_J" HorizontalAlignment="Left" Height="35" Margin="330,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_K" HorizontalAlignment="Left" Height="35" Margin="370,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_L" HorizontalAlignment="Left" Height="35" Margin="410,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Semicolon" HorizontalAlignment="Left" Height="35" Margin="450,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Apostrophe" HorizontalAlignment="Left" Height="35" Margin="490,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Enter" HorizontalAlignment="Left" Height="35" Margin="530,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-                    <Rectangle x:Name="Key_Z" HorizontalAlignment="Left" Height="35" Margin="103,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_X" HorizontalAlignment="Left" Height="35" Margin="143,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_C" HorizontalAlignment="Left" Height="35" Margin="183,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_V" HorizontalAlignment="Left" Height="35" Margin="223,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_B" HorizontalAlignment="Left" Height="35" Margin="263,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_N" HorizontalAlignment="Left" Height="35" Margin="303,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_M" HorizontalAlignment="Left" Height="35" Margin="343,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Comma" HorizontalAlignment="Left" Height="35" Margin="383,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Period" HorizontalAlignment="Left" Height="35" Margin="423,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ForwardSlash" HorizontalAlignment="Left" Height="35" Margin="463,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ShiftR" HorizontalAlignment="Left" Height="35" Margin="503,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="107"/>
-                    <Rectangle x:Name="Key_Windows" HorizontalAlignment="Left" Height="35" Margin="66,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                    <Rectangle x:Name="Key_Space" HorizontalAlignment="Left" Height="35" Margin="178,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="218"/>
-                    <Rectangle x:Name="Key_AltR" HorizontalAlignment="Left" Height="35" Margin="401,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                    <Rectangle x:Name="Key_WindowsR" HorizontalAlignment="Left" Height="35" Margin="457,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                    <Rectangle x:Name="Key_Options" HorizontalAlignment="Left" Height="35" Margin="513,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                    <Rectangle x:Name="Key_ControlR" HorizontalAlignment="Left" Height="35" Margin="569,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
-                    <Rectangle x:Name="Key_Insert" HorizontalAlignment="Left" Height="35" Margin="635,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Home" HorizontalAlignment="Left" Height="35" Margin="674,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_PageUp" HorizontalAlignment="Left" Height="35" Margin="713,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Delete" HorizontalAlignment="Left" Height="35" Margin="635,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_End" HorizontalAlignment="Left" Height="35" Margin="674,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_PageDown" HorizontalAlignment="Left" Height="35" Margin="713,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ArrowLeft" HorizontalAlignment="Left" Height="35" Margin="635,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ArrowDown" HorizontalAlignment="Left" Height="35" Margin="674,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ArrowRight" HorizontalAlignment="Left" Height="35" Margin="713,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_ArrowUp" HorizontalAlignment="Left" Height="35" Margin="674,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_NumLock" HorizontalAlignment="Left" Height="35" Margin="773,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_Divide" HorizontalAlignment="Left" Height="35" Margin="812,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_Multiply" HorizontalAlignment="Left" Height="35" Margin="851,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_Minus" HorizontalAlignment="Left" Height="35" Margin="890,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_7" HorizontalAlignment="Left" Height="35" Margin="773,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_8" HorizontalAlignment="Left" Height="35" Margin="812,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_9" HorizontalAlignment="Left" Height="35" Margin="851,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_Tilde_Copy92" HorizontalAlignment="Left" Height="74" Margin="890,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_4" HorizontalAlignment="Left" Height="35" Margin="773,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_5" HorizontalAlignment="Left" Height="35" Margin="812,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_6" HorizontalAlignment="Left" Height="35" Margin="851,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_1" HorizontalAlignment="Left" Height="35" Margin="773,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_2" HorizontalAlignment="Left" Height="35" Margin="812,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_3" HorizontalAlignment="Left" Height="35" Margin="851,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_Enter" HorizontalAlignment="Left" Height="75" Margin="890,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Num_0" HorizontalAlignment="Left" Height="35" Margin="773,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="74"/>
-                    <Rectangle x:Name="Num_Decimal" HorizontalAlignment="Left" Height="35" Margin="851,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                    <Rectangle x:Name="Key_AltL" HorizontalAlignment="Left" Height="35" Margin="122,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Escape" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F1" HorizontalAlignment="Left" Height="35" Margin="81,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F2" HorizontalAlignment="Left" Height="35" Margin="120,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F3" HorizontalAlignment="Left" Height="35" Margin="159,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F4" HorizontalAlignment="Left" Height="35" Margin="198,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F5" HorizontalAlignment="Left" Height="35" Margin="270,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F6" HorizontalAlignment="Left" Height="35" Margin="309,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F7" HorizontalAlignment="Left" Height="35" Margin="348,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F8" HorizontalAlignment="Left" Height="35" Margin="387,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F9" HorizontalAlignment="Left" Height="35" Margin="456,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F10" HorizontalAlignment="Left" Height="35" Margin="496,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F11" HorizontalAlignment="Left" Height="35" Margin="535,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F12" HorizontalAlignment="Left" Height="35" Margin="575,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Snapshot" HorizontalAlignment="Left" Height="35" Margin="635,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Scroll" HorizontalAlignment="Left" Height="35" Margin="674,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Pause" HorizontalAlignment="Left" Height="35" Margin="713,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Oem3" HorizontalAlignment="Left" Height="35" Margin="10,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Tab" HorizontalAlignment="Left" Height="35" Margin="10,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="56"/>
+                    <Rectangle x:Name="Capital" HorizontalAlignment="Left" Height="35" Margin="10,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+                    <Rectangle x:Name="LeftShift" HorizontalAlignment="Left" Height="35" Margin="10,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="88"/>
+                    <Rectangle x:Name="LeftCtrl" HorizontalAlignment="Left" Height="35" Margin="10,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="D1" HorizontalAlignment="Left" Height="35" Margin="50,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Q" HorizontalAlignment="Left" Height="35" Margin="71,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D2" HorizontalAlignment="Left" Height="35" Margin="90,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D3" HorizontalAlignment="Left" Height="35" Margin="130,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D4" HorizontalAlignment="Left" Height="35" Margin="170,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D5" HorizontalAlignment="Left" Height="35" Margin="210,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D6" HorizontalAlignment="Left" Height="35" Margin="250,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D7" HorizontalAlignment="Left" Height="35" Margin="290,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D8" HorizontalAlignment="Left" Height="35" Margin="330,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D9" HorizontalAlignment="Left" Height="35" Margin="370,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D0" HorizontalAlignment="Left" Height="35" Margin="410,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemMinus" HorizontalAlignment="Left" Height="35" Margin="450,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemPlus" HorizontalAlignment="Left" Height="35" Margin="490,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Back" HorizontalAlignment="Left" Height="35" Margin="530,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+                    <Rectangle x:Name="W" HorizontalAlignment="Left" Height="35" Margin="111,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="E" HorizontalAlignment="Left" Height="35" Margin="151,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="R" HorizontalAlignment="Left" Height="35" Margin="191,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="T" HorizontalAlignment="Left" Height="35" Margin="231,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Y" HorizontalAlignment="Left" Height="35" Margin="271,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="U" HorizontalAlignment="Left" Height="35" Margin="311,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="I" HorizontalAlignment="Left" Height="35" Margin="351,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="O" HorizontalAlignment="Left" Height="35" Margin="391,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="P" HorizontalAlignment="Left" Height="35" Margin="431,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemOpenBrackets" HorizontalAlignment="Left" Height="35" Margin="471,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Oem6" HorizontalAlignment="Left" Height="35" Margin="511,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Oem5" HorizontalAlignment="Left" Height="35" Margin="551,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="59"/>
+                    <Rectangle x:Name="A" HorizontalAlignment="Left" Height="35" Margin="90,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="S" HorizontalAlignment="Left" Height="35" Margin="130,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="D" HorizontalAlignment="Left" Height="35" Margin="170,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="F" HorizontalAlignment="Left" Height="35" Margin="210,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="G" HorizontalAlignment="Left" Height="35" Margin="250,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="H" HorizontalAlignment="Left" Height="35" Margin="290,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="J" HorizontalAlignment="Left" Height="35" Margin="330,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="K" HorizontalAlignment="Left" Height="35" Margin="370,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="L" HorizontalAlignment="Left" Height="35" Margin="410,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Oem1" HorizontalAlignment="Left" Height="35" Margin="450,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemQuotes" HorizontalAlignment="Left" Height="35" Margin="490,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Return" HorizontalAlignment="Left" Height="35" Margin="530,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+                    <Rectangle x:Name="Z" HorizontalAlignment="Left" Height="35" Margin="103,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="X" HorizontalAlignment="Left" Height="35" Margin="143,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="C" HorizontalAlignment="Left" Height="35" Margin="183,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="V" HorizontalAlignment="Left" Height="35" Margin="223,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="B" HorizontalAlignment="Left" Height="35" Margin="263,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="N" HorizontalAlignment="Left" Height="35" Margin="303,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="M" HorizontalAlignment="Left" Height="35" Margin="343,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemComma" HorizontalAlignment="Left" Height="35" Margin="383,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemPeriod" HorizontalAlignment="Left" Height="35" Margin="423,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="OemQuestion" HorizontalAlignment="Left" Height="35" Margin="463,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="RightShift" HorizontalAlignment="Left" Height="35" Margin="503,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="107"/>
+                    <Rectangle x:Name="LWin" HorizontalAlignment="Left" Height="35" Margin="66,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
+                    <Rectangle x:Name="Space" HorizontalAlignment="Left" Height="35" Margin="178,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="293"/>
+                    <Rectangle x:Name="Apps" HorizontalAlignment="Left" Height="35" Margin="476,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="61"/>
+                    <Rectangle x:Name="RightCtrl" HorizontalAlignment="Left" Height="35" Margin="542,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+                    <Rectangle x:Name="Insert" HorizontalAlignment="Left" Height="35" Margin="635,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Home" HorizontalAlignment="Left" Height="35" Margin="674,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="PageUp" HorizontalAlignment="Left" Height="35" Margin="713,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Delete" HorizontalAlignment="Left" Height="35" Margin="635,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="End" HorizontalAlignment="Left" Height="35" Margin="674,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Next" HorizontalAlignment="Left" Height="35" Margin="713,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Left" HorizontalAlignment="Left" Height="35" Margin="635,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Down" HorizontalAlignment="Left" Height="35" Margin="674,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Right" HorizontalAlignment="Left" Height="35" Margin="713,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Up" HorizontalAlignment="Left" Height="35" Margin="674,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumLock" HorizontalAlignment="Left" Height="35" Margin="773,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Divide" HorizontalAlignment="Left" Height="35" Margin="812,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Multiply" HorizontalAlignment="Left" Height="35" Margin="851,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Subtract" HorizontalAlignment="Left" Height="35" Margin="890,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad7" HorizontalAlignment="Left" Height="35" Margin="773,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad8" HorizontalAlignment="Left" Height="35" Margin="812,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad9" HorizontalAlignment="Left" Height="35" Margin="851,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="Add" HorizontalAlignment="Left" Height="154" Margin="890,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad4" HorizontalAlignment="Left" Height="35" Margin="773,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad5" HorizontalAlignment="Left" Height="35" Margin="812,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad6" HorizontalAlignment="Left" Height="35" Margin="851,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad1" HorizontalAlignment="Left" Height="35" Margin="773,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad2" HorizontalAlignment="Left" Height="35" Margin="812,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="NumPad3" HorizontalAlignment="Left" Height="35" Margin="851,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+
+                    <Rectangle x:Name="NumPad0" HorizontalAlignment="Left" Height="35" Margin="773,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="74"/>
+                    <Rectangle x:Name="Decimal" HorizontalAlignment="Left" Height="35" Margin="851,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle x:Name="LeftAlt" HorizontalAlignment="Left" Height="35" Margin="122,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
                     <TextBlock HorizontalAlignment="Left" Margin="12,15,0,0" TextWrapping="Wrap" Text="Esc" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="83,15,0,0" TextWrapping="Wrap" Text="F1" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="122,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F2"/><LineBreak/><Run/></TextBlock>
@@ -189,9 +187,8 @@
                     <TextBlock HorizontalAlignment="Left" Margin="12,225,0,0" TextWrapping="Wrap" Text="Ctrl" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="68,225,0,0" TextWrapping="Wrap" Text="⊞" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="124,225,0,0" TextWrapping="Wrap" Text="Alt" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="403,225,0,0" TextWrapping="Wrap" Text="Alt" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="515,225,0,0" TextWrapping="Wrap" Text="⌥" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="571,225,0,0" TextWrapping="Wrap" Text="Ctrl" VerticalAlignment="Top" Width="37" Height="28" FontSize="17" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="478,225,0,0" TextWrapping="Wrap" Text="❏" VerticalAlignment="Top" Width="57" Height="28" FontSize="17" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="544,225,0,0" TextWrapping="Wrap" Text="Ctrl" VerticalAlignment="Top" Width="64" Height="28" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="637,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PrS"/>
                     <TextBlock HorizontalAlignment="Left" Margin="676,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Scrl"/>
                     <TextBlock HorizontalAlignment="Left" Margin="715,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PsB"/>
@@ -212,7 +209,7 @@
                     <TextBlock HorizontalAlignment="Left" Margin="892,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="-"/>
                     <TextBlock HorizontalAlignment="Left" Margin="775,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="7"/>
                     <TextBlock HorizontalAlignment="Left" Margin="814,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="8"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="892,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="49" FontSize="17" TextAlignment="Center" Text="+"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="892,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="50" FontSize="17" TextAlignment="Center" Text="+"/>
                     <TextBlock HorizontalAlignment="Left" Margin="814,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="8"/>
                     <TextBlock HorizontalAlignment="Left" Margin="853,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="9"/>
                     <TextBlock HorizontalAlignment="Left" Margin="775,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="4"/>
@@ -223,7 +220,6 @@
                     <TextBlock HorizontalAlignment="Left" Margin="814,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="5"/>
                     <TextBlock HorizontalAlignment="Left" Margin="775,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="28" FontSize="17" TextAlignment="Center" Text="0"/>
                     <TextBlock HorizontalAlignment="Left" Margin="853,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="."/>
-                    <TextBlock HorizontalAlignment="Left" Margin="892,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="49" FontSize="17" TextAlignment="Center" Text="="/>
                 </Grid>
             </TabItem>
             <TabItem Header="monitor">
