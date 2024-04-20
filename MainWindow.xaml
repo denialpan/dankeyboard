@@ -11,16 +11,6 @@
         Title="dankeyboard" Height="600" Width="957
         " ResizeMode="CanMinimize" Background="White" ShowInTaskbar="False" Icon="/dankeyboard.ico">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="72*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="264*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="421*"/>
-        </Grid.ColumnDefinitions>
         <TabControl Grid.ColumnSpan="4" Grid.RowSpan="2">
             <TabItem Header="keyboard">
                 <Grid x:Name="KeyboardTab" Background="#FFE5E5E5">
@@ -233,6 +223,48 @@
                     <TextBlock HorizontalAlignment="Left" Margin="12,320,0,0" TextWrapping="Wrap" Text="L" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="96,320,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="61,297,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="26" Height="39" FontSize="17" TextAlignment="Center"/>
+                    <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="233,282,367,10" FontFamily="Consolas">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Key" Width="150" DisplayMemberBinding="{Binding Key}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortKeyboardData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Count" Width="150" DisplayMemberBinding="{Binding Count}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortKeyboardData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,399,743,10" FontFamily="Consolas">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="MouseButton" Width="90" DisplayMemberBinding="{Binding MouseButton}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortMouseData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Count" Width="75" DisplayMemberBinding="{Binding Count}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortMouseData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
                 </Grid>
             </TabItem>
             <TabItem Header="monitor">
@@ -243,13 +275,14 @@
         <tb:TaskbarIcon x:Name="notifyIcon"
                 ToolTipText="dankeyboard"
                 IconSource="/dankeyboard;component/dankeyboard.ico"
-                TrayMouseDoubleClick="NotifyIcon_TrayMouseDoubleClick">
+                TrayMouseDoubleClick="NotifyIcon_TrayMouseDoubleClick" d:IsHidden="True">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Close" Click="CloseMenuItem_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
+        
 
     </Grid>
 </Window>

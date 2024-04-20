@@ -9,6 +9,9 @@ using dankeyboard.src.keyboard;
 using dankeyboard.src.mouse;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.ComponentModel;
+using System.Data;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace dankeyboard
 {
@@ -18,6 +21,8 @@ namespace dankeyboard
         private static KeyboardHook? keyboardHook;
 
         private static MouseHook? mouseHook;
+        private static MouseHeatmap? mouseHeatmap;
+
 
         private static Dictionary<Key, int>? keyPresses;
         private static Dictionary<MouseButton, int>? mousePresses;
@@ -32,8 +37,6 @@ namespace dankeyboard
         public MainWindow()
         {
             InitializeComponent();
-
-
             Loaded += StartDanKeyboard;
             Closed += CloseDanKeyboard;
 
@@ -52,7 +55,7 @@ namespace dankeyboard
             mouseHook.StartMouseHook();
             mousePresses = mouseHook.getMousePressData();
 
-            MouseHeatmap mouseHeatmap = new MouseHeatmap();
+            mouseHeatmap = new MouseHeatmap();
             mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
 
         }
@@ -71,6 +74,9 @@ namespace dankeyboard
             if (WindowState == WindowState.Minimized) {
                 Hide(); // Hide the main window
                 notifyIcon.Visibility = Visibility.Visible; // Show the NotifyIcon in the system tray
+
+  
+
             }
 
             base.OnStateChanged(e);
@@ -78,6 +84,12 @@ namespace dankeyboard
 
         private void NotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e) {
             // Show the main window when the NotifyIcon is double-clicked
+            //refresh heatmaps and save data
+            keyboardHeatmap.ColorHeatmap(KeyboardTab, keyPresses);
+            mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
+            keyboardHook.SaveToCSV();
+            mouseHook.SaveToCSV();
+
             Show();
             WindowState = WindowState.Normal;
             Activate(); // Bring the window to the front
@@ -86,6 +98,46 @@ namespace dankeyboard
         private void CloseMenuItem_Click(object sender, RoutedEventArgs e) {
             // Close the application when the "Close" menu item is clicked
             Application.Current.Shutdown();
+        }
+
+        private void SortKeyboardData(object sender, RoutedEventArgs e) {
+            Debug.Write("FINALLY");
+
+            var columnHeader = sender as GridViewColumnHeader;
+            string? columnName = columnHeader?.Content as string;
+
+            if (!string.IsNullOrEmpty(columnName)) {
+                ListSortDirection newSortDirection = ListSortDirection.Ascending;
+                if (columnHeader.Tag != null && (ListSortDirection)columnHeader.Tag == ListSortDirection.Ascending) {
+                    newSortDirection = ListSortDirection.Descending;
+                }
+
+                columnHeader.Tag = newSortDirection;
+
+                ICollectionView view = CollectionViewSource.GetDefaultView(displayKeyboardData.ItemsSource);
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription(columnName, newSortDirection));
+            }
+        }
+
+        private void SortMouseData(object sender, RoutedEventArgs e) {
+            Debug.Write("FINALLY");
+
+            var columnHeader = sender as GridViewColumnHeader;
+            string? columnName = columnHeader?.Content as string;
+
+            if (!string.IsNullOrEmpty(columnName)) {
+                ListSortDirection newSortDirection = ListSortDirection.Ascending;
+                if (columnHeader.Tag != null && (ListSortDirection)columnHeader.Tag == ListSortDirection.Ascending) {
+                    newSortDirection = ListSortDirection.Descending;
+                }
+
+                columnHeader.Tag = newSortDirection;
+
+                ICollectionView view = CollectionViewSource.GetDefaultView(displayMouseData.ItemsSource);
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription(columnName, newSortDirection));
+            }
         }
     }
 }

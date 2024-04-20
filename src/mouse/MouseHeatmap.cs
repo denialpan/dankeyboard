@@ -5,25 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using static dankeyboard.src.keyboard.KeyboardHeatmap;
 
 namespace dankeyboard.src.mouse {
     public class MouseHeatmap {
 
         private int totalMousePresses = 0;
 
+        public class DataItem {
+            public string? MouseButton { get; set; }
+            public int Count { get; set; }
+        }
+
         public void ColorHeatmap(Grid keyboardGrid, Dictionary<MouseButton, int> mouseButtons) {
             // get total number of key presses
+
+            totalMousePresses = 0;
+
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
                 totalMousePresses += mb.Value;
             }
 
+            List<DataItem> mouseData = new List<DataItem> { };
+
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
 
                 Rectangle? rectangle;
-                double percentage = Math.Round(mb.Value / (double)totalMousePresses * 5, 2);
+                double percentage = Math.Round(mb.Value / (double)totalMousePresses * 2.5, 2);
                 Debug.WriteLine(percentage);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
 
@@ -43,7 +55,11 @@ namespace dankeyboard.src.mouse {
                     default:
                         break;
                 }
+                mouseData.Add(new DataItem { MouseButton = mb.Key.ToString(), Count = mb.Value });
             }
+
+            ListView? listView = keyboardGrid.FindName("displayMouseData") as ListView;
+            listView.ItemsSource = mouseData;
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {

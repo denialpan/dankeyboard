@@ -82,7 +82,7 @@ namespace dankeyboard.src.mouse {
             }
             return CallNextHookEx(_hookHandle, nCode, wParam, lParam);
         }
-        private void SaveToCSV() {
+        public void SaveToCSV() {
             StringBuilder csvContent = new StringBuilder();
             csvContent.AppendLine("KeyCode,Count");
             foreach (var kvp in mousePressCounts) {

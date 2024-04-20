@@ -4,7 +4,7 @@ using System.Windows.Shapes;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.CodeDom;
 
 namespace dankeyboard.src.keyboard
 {
@@ -12,31 +12,41 @@ namespace dankeyboard.src.keyboard
     {
 
         private int totalKeyPresses = 0;
+        public class DataItem {
+            public string? Key { get; set; }
+            public int Count { get; set; }
+        }
 
         public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys)
         {
+
+            totalKeyPresses = 0;
             // get total number of key presses
             foreach (KeyValuePair<Key, int> key in keys)
             {
                 totalKeyPresses += key.Value;
             }
 
-            // loop through all keys and assign colors
-            foreach (KeyValuePair<Key, int> key in keys)
-            {
+            List<DataItem> keyData = new List<DataItem>{};
+
+            // loop through all keys and assign colors and fill table
+            foreach (KeyValuePair<Key, int> key in keys) {
 
                 Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * 10, 2));
                 double percentage = Math.Round(key.Value / (double)totalKeyPresses * 7, 2);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
 
-                if (rectangle != null)
-                {
-
+                if (rectangle != null) {
                     rectangle.Fill = new SolidColorBrush(color);
                 }
 
+                keyData.Add(new DataItem { Key = key.Key.ToString(), Count = key.Value });
+
             }
+
+            ListView? listView = keyboardGrid.FindName("displayKeyboardData") as ListView;
+            listView.ItemsSource = keyData;
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {
