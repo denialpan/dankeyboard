@@ -6,21 +6,25 @@ using System.Windows.Input;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace dankeyboard.src
+namespace dankeyboard.src.keyboard
 {
-    public class KeyboardHeatmap {
+    public class KeyboardHeatmap
+    {
 
         private int totalKeyPresses = 0;
 
-        public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys) {
+        public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys)
+        {
             // get total number of key presses
-            foreach (KeyValuePair<Key, int> key in keys) {
+            foreach (KeyValuePair<Key, int> key in keys)
+            {
                 totalKeyPresses += key.Value;
             }
 
             // loop through all keys and assign colors
-            foreach (KeyValuePair<Key, int> key in keys) {
-                
+            foreach (KeyValuePair<Key, int> key in keys)
+            {
+
                 Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * 10, 2));
                 double percentage = Math.Round(key.Value / (double)totalKeyPresses * 10, 2);
@@ -28,10 +32,10 @@ namespace dankeyboard.src
 
                 if (rectangle != null)
                 {
-                    
+
                     rectangle.Fill = new SolidColorBrush(color);
                 }
-                
+
             }
         }
 
@@ -41,8 +45,8 @@ namespace dankeyboard.src
                 percentage = 0.5;
 
             // Convert hex strings to Color objects
-            System.Windows.Media.Color color1 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color1Hex);
-            System.Windows.Media.Color color2 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color2Hex);
+            Color color1 = (Color)ColorConverter.ConvertFromString(color1Hex);
+            Color color2 = (Color)ColorConverter.ConvertFromString(color2Hex);
 
             byte r = (byte)(color1.R + (color2.R - color1.R) * percentage * 2);
             byte g = (byte)(color1.G + (color2.G - color1.G) * percentage * 2);
