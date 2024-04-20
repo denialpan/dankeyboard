@@ -15,7 +15,7 @@ namespace dankeyboard.src.keyboard {
         private static IntPtr hookId = IntPtr.Zero;
         private static LowLevelKeyboardProc proc = HookCallback;
 
-        private DispatcherTimer ?keyboardTimer;
+        private DispatcherTimer? keyboardTimer;
         private static HashSet<Key> pressedKeys = new HashSet<Key>();
         private static Dictionary<Key, int> keyPressCounts = new Dictionary<Key, int>();
 
@@ -28,7 +28,7 @@ namespace dankeyboard.src.keyboard {
             keyboardTimer.Tick += DetectTabAlt;
             keyboardTimer.Start();
 
-            string filePath = "key_press_counts.csv";
+            string filePath = "dankeyboard_data/keys.csv";
             if (File.Exists(filePath)) {
                 // Read CSV file and populate dictionary
                 var lines = File.ReadAllLines(filePath);
@@ -40,11 +40,6 @@ namespace dankeyboard.src.keyboard {
                     }
                 }
             }
-
-            //if (kbhm != null) {
-            //    kbhm.ColorHeatmap(KeyboardTab, keyPressCounts);
-            //}
-
         }
 
         public void CloseKeyboardHook() {
@@ -62,7 +57,7 @@ namespace dankeyboard.src.keyboard {
         // this method primarily exists to detect when the alt tab functionality is detected
         // it does not detect the combination as one, but the keys individually
         // decent workaround, since alt is finnicky to deal with
-        private void DetectTabAlt(object ?sender, EventArgs e) {
+        private void DetectTabAlt(object? sender, EventArgs e) {
 
 
             // alt key
@@ -159,7 +154,10 @@ namespace dankeyboard.src.keyboard {
                 csvContent.AppendLine($"{kvp.Key},{kvp.Value}");
             }
 
-            string filePath = "key_press_counts.csv";
+            string folderPath = "dankeyboard_data"; 
+            string fileName = "keys.csv"; 
+            string filePath = Path.Combine(folderPath, fileName);
+            Directory.CreateDirectory(folderPath);
             File.WriteAllText(filePath, csvContent.ToString());
         }
 

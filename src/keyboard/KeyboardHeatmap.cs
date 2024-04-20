@@ -27,7 +27,7 @@ namespace dankeyboard.src.keyboard
 
                 Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * 10, 2));
-                double percentage = Math.Round(key.Value / (double)totalKeyPresses * 10, 2);
+                double percentage = Math.Round(key.Value / (double)totalKeyPresses * 7, 2);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
 
                 if (rectangle != null)
@@ -39,8 +39,7 @@ namespace dankeyboard.src.keyboard
             }
         }
 
-        private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage)
-        {
+        private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {
             if (percentage < 0 || percentage > 0.5)
                 percentage = 0.5;
 
