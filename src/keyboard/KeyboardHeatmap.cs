@@ -26,15 +26,20 @@ namespace dankeyboard.src.keyboard
             {
                 totalKeyPresses += key.Value;
             }
+            
+            Label? totalKeys = keyboardGrid.FindName("keyboardPressesTotal") as Label;
+            totalKeys.Content = $"Total keys: {totalKeyPresses}";
 
             List<DataItem> keyData = new List<DataItem>{};
+            Slider? keyboardSlider = keyboardGrid.FindName("keyboardHeatmapSlider") as Slider;
+            int heatmapStrength = (int)keyboardSlider.Value;
 
             // loop through all keys and assign colors and fill table
             foreach (KeyValuePair<Key, int> key in keys) {
 
                 Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
-                Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * 10, 2));
-                double percentage = Math.Round(key.Value / (double)totalKeyPresses * 7, 2);
+                Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2));
+                double percentage = Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
 
                 if (rectangle != null) {

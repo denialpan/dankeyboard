@@ -121,8 +121,6 @@ namespace dankeyboard
         }
 
         private void SortMouseData(object sender, RoutedEventArgs e) {
-            Debug.Write("FINALLY");
-
             var columnHeader = sender as GridViewColumnHeader;
             string? columnName = columnHeader?.Content as string;
 
@@ -137,6 +135,18 @@ namespace dankeyboard
                 ICollectionView view = CollectionViewSource.GetDefaultView(displayMouseData.ItemsSource);
                 view.SortDescriptions.Clear();
                 view.SortDescriptions.Add(new SortDescription(columnName, newSortDirection));
+            }
+        }
+
+        private void KeyboardSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            if (keyboardHeatmap != null && keyPresses != null) { 
+                keyboardHeatmap.ColorHeatmap(KeyboardTab, keyPresses);
+            }
+        }
+
+        private void MouseSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            if (mouseHeatmap != null && mousePresses != null) {
+                mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
             }
         }
     }

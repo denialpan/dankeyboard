@@ -30,12 +30,17 @@ namespace dankeyboard.src.mouse {
                 totalMousePresses += mb.Value;
             }
 
-            List<DataItem> mouseData = new List<DataItem> { };
+            Label? totalMouse = keyboardGrid.FindName("mousePressesTotal") as Label;
+            totalMouse.Content = $"Total mouses: {totalMousePresses}";
+
+            List<DataItem> mouseData = new List<DataItem> {};
+            Slider? mouseSlider = keyboardGrid.FindName("mouseHeatmapSlider") as Slider;
+            int heatmapStrength = (int)mouseSlider.Value;
 
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
 
                 Rectangle? rectangle;
-                double percentage = Math.Round(mb.Value / (double)totalMousePresses * 2.5, 2);
+                double percentage = Math.Round(mb.Value / (double)totalMousePresses * heatmapStrength, 2);
                 Debug.WriteLine(percentage);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
 
