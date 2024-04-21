@@ -223,17 +223,24 @@
                     <TextBlock HorizontalAlignment="Left" Margin="12,320,0,0" TextWrapping="Wrap" Text="L" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="96,320,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Left" Margin="61,297,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="26" Height="39" FontSize="17" TextAlignment="Center"/>
-                    <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="233,282,367,47" FontFamily="Consolas">
+                    <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="333,282,267,47" FontFamily="Consolas">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Key" Width="150" DisplayMemberBinding="{Binding Key}">
+                                <GridViewColumn Header="Key" Width="75" DisplayMemberBinding="{Binding Key}">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <EventSetter Event="Click" Handler="SortKeyboardData"/>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Count" Width="150" DisplayMemberBinding="{Binding Count}">
+                                <GridViewColumn Header="Count" Width="75" DisplayMemberBinding="{Binding Count}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortKeyboardData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Percentage" Width="75" DisplayMemberBinding="{Binding Percentage}">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <EventSetter Event="Click" Handler="SortKeyboardData"/>
@@ -244,7 +251,7 @@
                         </ListView.View>
                     </ListView>
 
-                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="10,399,727,47" FontFamily="Consolas">
+                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="10,399,671,47" FontFamily="Consolas">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="MouseButton" Width="90" DisplayMemberBinding="{Binding MouseButton}">
@@ -261,17 +268,24 @@
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                 </GridViewColumn>
+                                <GridViewColumn Header="Percentage" Width="75" DisplayMemberBinding="{Binding Percentage}">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <EventSetter Event="Click" Handler="SortMouseData"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Slider x:Name="keyboardHeatmapSlider" HorizontalAlignment="Left" Margin="592,303,0,0" VerticalAlignment="Top" Width="120" IsSnapToTickEnabled="True" TickPlacement="BottomRight" 
+                    <Slider x:Name="keyboardHeatmapSlider" HorizontalAlignment="Left" Margin="692,303,0,0" VerticalAlignment="Top" Width="120" IsSnapToTickEnabled="True" TickPlacement="BottomRight" 
 AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2" Value="10"
 Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderChanged"/>
-                    <Slider Margin="592,358,0,0" Width="120" Value="2" ValueChanged="MouseSliderChanged" VerticalAlignment="Top" Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" TickPlacement="BottomRight" x:Name="mouseHeatmapSlider" Minimum="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
-                    <Label Content="keyboard strength&#xD;&#xA;" HorizontalAlignment="Left" Margin="586,271,0,0" VerticalAlignment="Top" Width="126" Height="27"/>
-                    <Label Content="mouse strength&#xA;" HorizontalAlignment="Left" Margin="586,325,0,0" VerticalAlignment="Top" Width="126" Height="28"/>
+                    <Slider Margin="692,358,0,0" Width="120" Value="2" ValueChanged="MouseSliderChanged" VerticalAlignment="Top" Ticks="1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3" TickPlacement="BottomRight" x:Name="mouseHeatmapSlider" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" HorizontalAlignment="Left" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
+                    <Label Content="keyboard strength&#xD;&#xA;" HorizontalAlignment="Left" Margin="686,271,0,0" VerticalAlignment="Top" Width="126" Height="27"/>
+                    <Label Content="mouse strength&#xA;" HorizontalAlignment="Left" Margin="686,325,0,0" VerticalAlignment="Top" Width="126" Height="28"/>
                     <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" Width="198" FontFamily="Consolas"/>
-                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="233,491,0,0" VerticalAlignment="Top" Width="198" FontFamily="Consolas"/>
+                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="333,491,0,0" VerticalAlignment="Top" Width="198" FontFamily="Consolas"/>
 
                 </Grid>
             </TabItem>

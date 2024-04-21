@@ -19,6 +19,7 @@ namespace dankeyboard.src.mouse {
         public class DataItem {
             public string? MouseButton { get; set; }
             public int Count { get; set; }
+            public string Percentage { get; set; }  
         }
 
         public void ColorHeatmap(Grid keyboardGrid, Dictionary<MouseButton, int> mouseButtons) {
@@ -35,14 +36,13 @@ namespace dankeyboard.src.mouse {
 
             List<DataItem> mouseData = new List<DataItem> {};
             Slider? mouseSlider = keyboardGrid.FindName("mouseHeatmapSlider") as Slider;
-            int heatmapStrength = (int)mouseSlider.Value;
+            double heatmapStrength = mouseSlider.Value;
 
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
 
                 Rectangle? rectangle;
-                double percentage = Math.Round(mb.Value / (double)totalMousePresses * heatmapStrength, 2);
-                Debug.WriteLine(percentage);
-                Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
+                double percentage = Math.Round(mb.Value / (double)totalMousePresses, 2);
+                Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
                 switch (mb.Key.ToString()) {
                     case "Left":
@@ -60,7 +60,9 @@ namespace dankeyboard.src.mouse {
                     default:
                         break;
                 }
-                mouseData.Add(new DataItem { MouseButton = mb.Key.ToString(), Count = mb.Value });
+
+                string p = percentage.ToString("0.00");
+                mouseData.Add(new DataItem { MouseButton = mb.Key.ToString(), Count = mb.Value, Percentage = $"{p}%" });
             }
 
             ListView? listView = keyboardGrid.FindName("displayMouseData") as ListView;

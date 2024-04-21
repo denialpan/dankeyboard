@@ -96,12 +96,12 @@ namespace dankeyboard
         }
 
         private void CloseMenuItem_Click(object sender, RoutedEventArgs e) {
-            // Close the application when the "Close" menu item is clicked
+            keyboardHook.SaveToCSV();
+            mouseHook.SaveToCSV();
             Application.Current.Shutdown();
         }
 
         private void SortKeyboardData(object sender, RoutedEventArgs e) {
-            Debug.Write("FINALLY");
 
             var columnHeader = sender as GridViewColumnHeader;
             string? columnName = columnHeader?.Content as string;

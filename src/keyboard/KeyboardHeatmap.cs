@@ -15,6 +15,8 @@ namespace dankeyboard.src.keyboard
         public class DataItem {
             public string? Key { get; set; }
             public int Count { get; set; }
+
+            public string Percentage { get; set; }
         }
 
         public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys)
@@ -39,14 +41,15 @@ namespace dankeyboard.src.keyboard
 
                 Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2));
-                double percentage = Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2);
-                Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage));
+                double percentage = Math.Round(key.Value / (double)totalKeyPresses, 2);
+                Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
                 if (rectangle != null) {
                     rectangle.Fill = new SolidColorBrush(color);
                 }
 
-                keyData.Add(new DataItem { Key = key.Key.ToString(), Count = key.Value });
+                string p = percentage.ToString("0.00");
+                keyData.Add(new DataItem { Key = key.Key.ToString(), Count = key.Value, Percentage = $"{p}%" });
 
             }
 
