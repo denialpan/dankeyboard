@@ -54,7 +54,7 @@ namespace dankeyboard.src.keyboard
             }
 
             ListView? listView = keyboardGrid.FindName("displayKeyboardData") as ListView;
-            listView.ItemsSource = keyData;
+            listView.ItemsSource = keyData.OrderByDescending(item => item.Count).ToList();
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {

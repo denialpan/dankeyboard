@@ -66,7 +66,7 @@ namespace dankeyboard.src.mouse {
             }
 
             ListView? listView = keyboardGrid.FindName("displayMouseData") as ListView;
-            listView.ItemsSource = mouseData;
+            listView.ItemsSource = mouseData.OrderByDescending(item => item.Count).ToList();
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {
