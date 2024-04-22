@@ -25,6 +25,7 @@ namespace dankeyboard
 
 
         private static Dictionary<Key, int>? keyPresses;
+        private static Dictionary<KeyboardHook.Combination, int> combinationPresses;
         private static Dictionary<MouseButton, int>? mousePresses;
 
         [StructLayout(LayoutKind.Sequential)]
@@ -47,16 +48,17 @@ namespace dankeyboard
             keyboardHook = new KeyboardHook();
             keyboardHook.StartKeyboardHook();
             keyPresses = keyboardHook.getKeyPressData();
+            combinationPresses = keyboardHook.getCombinationData();
 
             keyboardHeatmap = new KeyboardHeatmap();
-            keyboardHeatmap.ColorHeatmap(KeyboardTab, keyPresses);
+            keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
 
             mouseHook = new MouseHook();
             mouseHook.StartMouseHook();
             mousePresses = mouseHook.getMousePressData();
 
             mouseHeatmap = new MouseHeatmap();
-            mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
+            mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
 
         }
 
@@ -85,8 +87,8 @@ namespace dankeyboard
         private void NotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e) {
             // Show the main window when the NotifyIcon is double-clicked
             //refresh heatmaps and save data
-            keyboardHeatmap.ColorHeatmap(KeyboardTab, keyPresses);
-            mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
+            keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
+            mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
             keyboardHook.SaveToCSV();
             mouseHook.SaveToCSV();
 
@@ -138,15 +140,33 @@ namespace dankeyboard
             }
         }
 
+        private void SortCombinationData(object sender, RoutedEventArgs e) {
+            var columnHeader = sender as GridViewColumnHeader;
+            string? columnName = columnHeader?.Content as string;
+
+            if (!string.IsNullOrEmpty(columnName)) {
+                ListSortDirection newSortDirection = ListSortDirection.Ascending;
+                if (columnHeader.Tag != null && (ListSortDirection)columnHeader.Tag == ListSortDirection.Ascending) {
+                    newSortDirection = ListSortDirection.Descending;
+                }
+
+                columnHeader.Tag = newSortDirection;
+
+                ICollectionView view = CollectionViewSource.GetDefaultView(displayCombinationData.ItemsSource);
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new SortDescription(columnName, newSortDirection));
+            }
+        }
+
         private void KeyboardSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             if (keyboardHeatmap != null && keyPresses != null) { 
-                keyboardHeatmap.ColorHeatmap(KeyboardTab, keyPresses);
+                keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
             }
         }
 
         private void MouseSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             if (mouseHeatmap != null && mousePresses != null) {
-                mouseHeatmap.ColorHeatmap(KeyboardTab, mousePresses);
+                mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
             }
         }
     }

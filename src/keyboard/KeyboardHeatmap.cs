@@ -12,29 +12,44 @@ namespace dankeyboard.src.keyboard
     {
 
         private int totalKeyPresses = 0;
-        public class DataItem {
+        private int totalCombinationPresses = 0;
+        public class KeyItemData {
             public string? Key { get; set; }
             public int Count { get; set; }
 
             public string Percentage { get; set; }
         }
+        public class CombinationItemData { 
+            public string? Combination { get; set; }
+            public int Count { get; set; }
+            public string Percentage { get; set; }
+        }
 
-        public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys)
-        {
+        public void ColorHeatmap(Grid keyboardGrid, Dictionary<Key, int> keys, Dictionary<KeyboardHook.Combination, int> combinations) {
 
             totalKeyPresses = 0;
+            totalCombinationPresses = 0;
+
             // get total number of key presses
-            foreach (KeyValuePair<Key, int> key in keys)
-            {
+            foreach (KeyValuePair<Key, int> key in keys) {
                 totalKeyPresses += key.Value;
+            }
+
+            foreach (KeyValuePair<KeyboardHook.Combination, int> combination in combinations) {
+                totalCombinationPresses += combination.Value;
             }
             
             Label? totalKeys = keyboardGrid.FindName("keyboardPressesTotal") as Label;
             totalKeys.Content = $"Total keys: {totalKeyPresses}";
+            Label? totalCombinations = keyboardGrid.FindName("combinationPressesTotal") as Label;
+            totalCombinations.Content = $"Total combinations: {totalCombinationPresses}";
 
-            List<DataItem> keyData = new List<DataItem>{};
+            List<KeyItemData> keyData = new List<KeyItemData>{};
             Slider? keyboardSlider = keyboardGrid.FindName("keyboardHeatmapSlider") as Slider;
             int heatmapStrength = (int)keyboardSlider.Value;
+
+            List<CombinationItemData> combinationData = new List<CombinationItemData>();
+
 
             // loop through all keys and assign colors and fill table
             foreach (KeyValuePair<Key, int> key in keys) {
@@ -49,12 +64,27 @@ namespace dankeyboard.src.keyboard
                 }
 
                 string p = percentage.ToString("0.00");
-                keyData.Add(new DataItem { Key = key.Key.ToString(), Count = key.Value, Percentage = $"{p}%" });
+                keyData.Add(new KeyItemData { Key = key.Key.ToString(), Count = key.Value, Percentage = $"{p}%" });
 
             }
 
-            ListView? listView = keyboardGrid.FindName("displayKeyboardData") as ListView;
-            listView.ItemsSource = keyData.OrderByDescending(item => item.Count).ToList();
+            // loop through all combinations and fill table
+            foreach (KeyValuePair<KeyboardHook.Combination, int> combination in combinations) {
+
+                Debug.WriteLine(Math.Round(combination.Value / (double)totalCombinationPresses * heatmapStrength, 2));
+                double percentage = Math.Round(combination.Value / (double)totalCombinationPresses, 2);
+
+                string p = percentage.ToString("0.00");
+                combinationData.Add(new CombinationItemData { Combination = combination.Key.ToString(), Count = combination.Value, Percentage = $"{p}%" });
+
+            }
+
+            ListView? keyboardListView = keyboardGrid.FindName("displayKeyboardData") as ListView;
+            keyboardListView.ItemsSource = keyData.OrderByDescending(item => item.Count).ToList();
+            ListView? combinationListView = keyboardGrid.FindName("displayCombinationData") as ListView;
+            combinationListView.ItemsSource = combinationData.OrderByDescending(item => item.Count).ToList();
+
+
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {

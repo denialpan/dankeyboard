@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.IO;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Xml.Linq;
 
 namespace dankeyboard.src.keyboard {
     public class KeyboardHook {
@@ -18,6 +20,37 @@ namespace dankeyboard.src.keyboard {
         private DispatcherTimer? keyboardTimer;
         private static HashSet<Key> pressedKeys = new HashSet<Key>();
         private static Dictionary<Key, int> keyPressCounts = new Dictionary<Key, int>();
+        private static Dictionary<Combination, int> combinationCounts = new Dictionary<Combination, int>();
+        public class Combination : IEquatable<Combination> { 
+
+            public string? Key { get; set; }
+            public string? Modifier {  get; set; }
+
+            public override int GetHashCode() {
+                unchecked {
+                    int hash = 17;
+                    hash = hash * 23 + (Key != null ? Key.GetHashCode() : 0);
+                    hash = hash * 23 + (Modifier != null ? Modifier.GetHashCode() : 0);
+                    return hash;
+                }
+            }
+
+            public override bool Equals(object obj) {
+                return Equals(obj as Combination);
+            }
+
+            public bool Equals(Combination other) {
+                if (other == null)
+                    return false;
+
+                return (Key == other.Key && Modifier == other.Modifier);
+            }
+            public override string ToString() {
+                return $"{Modifier} + {Key}";
+            }
+
+        }
+
 
         public void StartKeyboardHook() {
 
@@ -40,6 +73,28 @@ namespace dankeyboard.src.keyboard {
                     }
                 }
             }
+
+            filePath = "dankeyboard_data/combination.csv";
+            if (File.Exists(filePath)) {
+                // Read CSV file and populate dictionary
+                var lines = File.ReadAllLines(filePath);
+                foreach (var line in lines.Skip(1)) // Skip header
+                {
+                    var parts = line.Split(',');
+                    if (parts.Length == 2 && parts[0] is string && int.TryParse(parts[1], out int count)) {
+
+                        string entry = parts[0];
+
+                        var keys = entry.Split(' ');
+                        Debug.WriteLine(entry);
+
+                        Combination duh = new Combination { Key = keys[1], Modifier = keys[0] };
+                        combinationCounts[duh] = count;
+
+                    }
+                }
+            }
+
         }
 
         public void CloseKeyboardHook() {
@@ -52,7 +107,11 @@ namespace dankeyboard.src.keyboard {
 
         public Dictionary<Key, int> getKeyPressData() { 
             return keyPressCounts;
-        } 
+        }
+
+        public Dictionary<Combination, int> getCombinationData() {
+            return combinationCounts;
+        }
 
         // this method primarily exists to detect when the alt tab functionality is detected
         // it does not detect the combination as one, but the keys individually
@@ -130,17 +189,32 @@ namespace dankeyboard.src.keyboard {
                 ModifierKeys modifierKeys = Keyboard.Modifiers & ~ModifierKeys.Alt;
 
                 if (!pressedKeys.Contains(key) && key != Key.Tab) {
-                    Debug.WriteLine($"Key: {key}, Modifiers: {modifierKeys}");
 
                     if (keyPressCounts.ContainsKey(key)) {
                         keyPressCounts[key]++;
-                        Debug.WriteLine(keyPressCounts[key]);
                     } else {
                         keyPressCounts[key] = 1;
-                        Debug.WriteLine(keyPressCounts[key]);
-
                     }
                     pressedKeys.Add(key);
+
+                    if (modifierKeys != ModifierKeys.None) {
+
+                        Debug.WriteLine(modifierKeys.ToString());
+                        Combination c = new Combination { Key = key.ToString(), Modifier = modifierKeys.ToString() };
+
+                        if (combinationCounts.ContainsKey(c)) {
+                            combinationCounts[c]++;
+                            Debug.Write(combinationCounts[c]);
+                        } else {
+                            combinationCounts[c] = 1;
+                            Debug.Write(combinationCounts[c]);
+
+                        }
+
+
+                    }
+
+                    Debug.WriteLine($"Key: {key}, Modifiers: {modifierKeys}");
                 }
 
             }
@@ -148,17 +222,33 @@ namespace dankeyboard.src.keyboard {
         }
 
         public void SaveToCSV() {
+
             StringBuilder csvContent = new StringBuilder();
+            string folderPath = "dankeyboard_data";
+            string fileName;
+            string filePath;
+
+            // only key csv
+            fileName = "keys.csv";
+            filePath = Path.Combine(folderPath, fileName);
             csvContent.AppendLine("KeyCode,Count");
             foreach (var kvp in keyPressCounts) {
                 csvContent.AppendLine($"{kvp.Key},{kvp.Value}");
             }
-
-            string folderPath = "dankeyboard_data"; 
-            string fileName = "keys.csv"; 
-            string filePath = Path.Combine(folderPath, fileName);
             Directory.CreateDirectory(folderPath);
             File.WriteAllText(filePath, csvContent.ToString());
+
+            // key combination csv
+            csvContent = new StringBuilder();
+            fileName = "combination.csv";
+            filePath = Path.Combine(folderPath, fileName);
+            csvContent.AppendLine("Combination,Count");
+            foreach (var c in combinationCounts) {
+                csvContent.AppendLine($"{c.Key.Modifier} {c.Key.Key},{c.Value}");
+            }
+            Directory.CreateDirectory(folderPath);
+            File.WriteAllText(filePath, csvContent.ToString());
+
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
