@@ -265,7 +265,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                     <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="377" Margin="10,299,0,39" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Key" Width="75" DisplayMemberBinding="{Binding Key}">
+                                <GridViewColumn Header="Key" Width="150" DisplayMemberBinding="{Binding Key}">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <EventSetter Event="ButtonBase.Click" Handler="SortKeyboardData"/>
@@ -293,7 +293,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                     <ListView x:Name="displayCombinationData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="450" Margin="392,299,0,39" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Combination" Width="110" DisplayMemberBinding="{Binding Combination}">
+                                <GridViewColumn Header="Combination" Width="200" DisplayMemberBinding="{Binding Combination}">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <EventSetter Event="ButtonBase.Click" Handler="SortCombinationData"/>
@@ -351,7 +351,11 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                 </Grid>
             </TabItem>
             <TabItem Header="Monitor">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFFFFF">
+
+                    <Image x:Name="heatmapImage" Margin="11,11,11,11" />
+
+                </Grid>
             </TabItem>
         </TabControl>
 

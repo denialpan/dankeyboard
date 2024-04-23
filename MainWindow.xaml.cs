@@ -12,6 +12,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace dankeyboard
 {
@@ -38,9 +40,63 @@ namespace dankeyboard
         public MainWindow()
         {
             InitializeComponent();
+
+            GenerateHeatmap();
+
             Loaded += StartDanKeyboard;
             Closed += CloseDanKeyboard;
 
+        }
+
+        private void GenerateHeatmap() {
+            // Create a writable bitmap with desired dimensions
+            int width = (int)SystemParameters.PrimaryScreenWidth;
+            int height = (int)SystemParameters.PrimaryScreenHeight;
+            WriteableBitmap heatmapBitmap = new WriteableBitmap(width, height, 96, 96, PixelFormats.Bgra32, null);
+
+            // Apply heatmap effect based on your data points
+            ApplyHeatmapEffect(heatmapBitmap);
+
+            // Display the heatmap image
+            heatmapImage.Source = heatmapBitmap;
+        }
+
+        private void ApplyHeatmapEffect(WriteableBitmap bitmap) {
+            // Fill the background with gray color
+            int stride = (bitmap.PixelWidth * bitmap.Format.BitsPerPixel + 7) / 8;
+            byte[] pixels = new byte[stride * bitmap.PixelHeight];
+            for (int y = 0; y < bitmap.PixelHeight; y++) {
+                for (int x = 0; x < bitmap.PixelWidth; x++) {
+                    int index = (y * stride) + (x * 4);
+                    pixels[index] = 0x80; // Blue (50% intensity)
+                    pixels[index + 1] = 0x80; // Green (50% intensity)
+                    pixels[index + 2] = 0x80; // Red (50% intensity)
+                    pixels[index + 3] = 0xFF; // Alpha
+                }
+            }
+            bitmap.WritePixels(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight), pixels, stride, 0);
+
+            // Draw dots on top of the gray background
+            int dotSize = 5; // Size of the dots
+            for (int i = 0; i < 5; i++) {
+                int centerX = 50 * (i + 1); // X-coordinate of the center of the dot
+                int centerY = 100; // Y-coordinate of the center of the dot
+
+                // Loop through the area of the dot to set pixels
+                for (int y = centerY - dotSize / 2; y < centerY + dotSize / 2; y++) {
+                    for (int x = centerX - dotSize / 2; x < centerX + dotSize / 2; x++) {
+                        if (x >= 0 && x < bitmap.PixelWidth && y >= 0 && y < bitmap.PixelHeight) {
+                            int index = (y * stride) + (x * 4);
+                            pixels[index] = 0xFF; // Blue
+                            pixels[index + 1] = 0x00; // Green
+                            pixels[index + 2] = 0x00; // Red
+                            pixels[index + 3] = 0xFF; // Alpha
+                        }
+                    }
+                }
+            }
+
+            bitmap.WritePixels(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight), pixels, stride, 0);
         }
 
         private void StartDanKeyboard(object sender, RoutedEventArgs e) {
