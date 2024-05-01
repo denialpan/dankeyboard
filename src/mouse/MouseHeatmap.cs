@@ -41,7 +41,7 @@ namespace dankeyboard.src.mouse {
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
 
                 Button? button;
-                double percentage = Math.Round(mb.Value / (double)totalMousePresses, 2);
+                double percentage = mb.Value / (double)totalMousePresses;
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
                 switch (mb.Key.ToString()) {
@@ -61,7 +61,7 @@ namespace dankeyboard.src.mouse {
                         break;
                 }
 
-                string p = (percentage * 100).ToString("0.00");
+                string p = (percentage * 100).ToString("0.000");
                 mouseData.Add(new DataItem { MouseButton = mb.Key.ToString(), Count = mb.Value, Percentage = $"{p}%" });
             }
 

@@ -29,17 +29,12 @@
         <TabControl Margin="0,24,0,0">
             <TabItem Header="Keyboard/Mouse">
                 <Grid x:Name="KeyboardMouseTab" Background="#FFFFFF">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="1322*"/>
-                    </Grid.ColumnDefinitions>
+
                     <GroupBox x:Name="KeyboardGroupBox" Header="Keyboard" Margin="10,4,0,0" VerticalAlignment="Top" Height="290" HorizontalAlignment="Left" Width="947" Grid.ColumnSpan="3">
                         <Grid>
 
 
                             <!--All the keyboard keys and such-->
-                            <TextBlock HorizontalAlignment="Left" Margin="853,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="3"/>
 
                             <!--layer 1-->
 
@@ -177,14 +172,14 @@
 
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="MouseGroupBox" Header="Mouse" Margin="918,4,0,0" HorizontalAlignment="Left" Width="162" Height="136" VerticalAlignment="Top" Grid.Column="2">
+                    <GroupBox x:Name="MouseGroupBox" Header="Mouse" Margin="962,4,0,0" HorizontalAlignment="Left" Width="162" Height="136" VerticalAlignment="Top">
                         <Grid>
                             <Button x:Name="M_Left" Content="L" Margin="10,4,96,10"/>
                             <Button x:Name="M_Middle" Content="M" Margin="59,4,61,49"/>
                             <Button x:Name="M_Right" Content="R" Margin="94,4,10,10"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="Heatmap" Header="Heatmap" Margin="918,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="154" Width="162" Grid.Column="2">
+                    <GroupBox x:Name="Heatmap" Header="Heatmap" Margin="962,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="154" Width="162">
                         <Grid>
                             <Label Content="Mouse" Margin="0,66,0,0" VerticalAlignment="Top"/>
                             <Slider Margin="4,92,4,0" Value="2" ValueChanged="MouseSliderChanged" VerticalAlignment="Top" Ticks="1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3" TickPlacement="BottomRight" x:Name="mouseHeatmapSlider" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
@@ -222,7 +217,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                         </ListView.View>
                     </ListView>
 
-                    <ListView x:Name="displayCombinationData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="450" Margin="345,299,0,39" HorizontalAlignment="Left" Grid.Column="2">
+                    <ListView x:Name="displayCombinationData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="447" Margin="392,299,0,39" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Combination" Width="200" DisplayMemberBinding="{Binding Combination}">
@@ -249,7 +244,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="800,299,0,39" FontFamily="Consolas" Width="280" HorizontalAlignment="Left" Grid.Column="2">
+                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="844,299,0,39" FontFamily="Consolas" Width="280" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="MouseButton" Width="90" DisplayMemberBinding="{Binding MouseButton}">
@@ -277,9 +272,9 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                         </ListView.View>
                     </ListView>
 
-                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="11,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.ColumnSpan="3"/>
-                    <Label x:Name="combinationPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="346,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.Column="2"/>
-                    <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Width="198" FontFamily="Consolas" Margin="801,0,0,10" VerticalAlignment="Bottom" Grid.Column="2"/>
+                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="11,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.ColumnSpan="3" Height="24"/>
+                    <Label x:Name="combinationPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="392,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Height="24"/>
+                    <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Width="198" FontFamily="Consolas" Margin="844,0,0,10" VerticalAlignment="Bottom" Height="24"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Monitor">

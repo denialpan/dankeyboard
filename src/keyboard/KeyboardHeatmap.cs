@@ -60,7 +60,7 @@ namespace dankeyboard.src.keyboard
 
 
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2));
-                double percentage = Math.Round(key.Value / (double)totalKeyPresses, 2);
+                double percentage = key.Value / (double)totalKeyPresses;
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
                 if (butt != null) {
@@ -68,7 +68,7 @@ namespace dankeyboard.src.keyboard
                     butt.Click += scrollToKey;
                 }
 
-                string p = (percentage * 100).ToString("0.00");
+                string p = (percentage * 100).ToString("0.000");
                 keyData.Add(new KeyItemData { Key = key.Key.ToString(), Count = key.Value, Percentage = $"{p}%" });
 
             }
@@ -77,9 +77,9 @@ namespace dankeyboard.src.keyboard
             foreach (KeyValuePair<KeyboardHook.Combination, int> combination in combinations) {
 
                 Debug.WriteLine(Math.Round(combination.Value / (double)totalCombinationPresses * heatmapStrength, 2));
-                double percentage = Math.Round(combination.Value / (double)totalCombinationPresses * 100, 2);
+                double percentage = combination.Value / (double)totalCombinationPresses * 100;
 
-                string p = percentage.ToString("0.00");
+                string p = percentage.ToString("0.000");
                 combinationData.Add(new CombinationItemData { Combination = combination.Key.ToString(), Count = combination.Value, Percentage = $"{p}%" });
 
             }
