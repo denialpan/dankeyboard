@@ -8,7 +8,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         
-        Title="dankeyboard" MinHeight="640" Height="640" MinWidth="1160" Width="1160" ResizeMode="CanResizeWithGrip" Background="White" ShowInTaskbar="False" Icon="/dankeyboard.ico">
+        Title="dankeyboard" MinHeight="640" Height="640" MinWidth="1160" Width="1375" ResizeMode="CanResizeWithGrip" Background="White" ShowInTaskbar="False" Icon="/dankeyboard.ico">
 
     <Grid>
 
@@ -29,230 +29,162 @@
         <TabControl Margin="0,24,0,0">
             <TabItem Header="Keyboard/Mouse">
                 <Grid x:Name="KeyboardMouseTab" Background="#FFFFFF">
-                    <GroupBox x:Name="KeyboardGroupBox" Header="Keyboard" Margin="10,4,0,0" VerticalAlignment="Top" Height="290" HorizontalAlignment="Left" Width="947">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="1322*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="KeyboardGroupBox" Header="Keyboard" Margin="10,4,0,0" VerticalAlignment="Top" Height="290" HorizontalAlignment="Left" Width="947" Grid.ColumnSpan="3">
                         <Grid>
 
 
                             <!--All the keyboard keys and such-->
-                            <Rectangle x:Name="Escape" Height="35" Stroke="Black" VerticalAlignment="Top" Width="35" StrokeThickness="1" HorizontalAlignment="Left" Margin="10,10,0,0"/>
-                            <TextBlock TextWrapping="Wrap" Text="Esc" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center" Margin="12,15,0,0" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="F1" HorizontalAlignment="Left" Height="35" Margin="81,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="83,15,0,0" TextWrapping="Wrap" Text="F1" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-
-                            <Rectangle x:Name="F2" HorizontalAlignment="Left" Height="35" Margin="120,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F3" HorizontalAlignment="Left" Height="35" Margin="159,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F4" HorizontalAlignment="Left" Height="35" Margin="198,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F5" HorizontalAlignment="Left" Height="35" Margin="270,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F6" HorizontalAlignment="Left" Height="35" Margin="309,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F7" HorizontalAlignment="Left" Height="35" Margin="348,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F8" HorizontalAlignment="Left" Height="35" Margin="387,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F9" HorizontalAlignment="Left" Height="35" Margin="456,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F10" HorizontalAlignment="Left" Height="35" Margin="496,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F11" HorizontalAlignment="Left" Height="35" Margin="535,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F12" HorizontalAlignment="Left" Height="35" Margin="575,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-
-                            <Rectangle x:Name="Snapshot" HorizontalAlignment="Left" Height="35" Margin="635,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Scroll" HorizontalAlignment="Left" Height="35" Margin="674,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Pause" HorizontalAlignment="Left" Height="35" Margin="713,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Tab" HorizontalAlignment="Left" Height="35" Margin="10,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="56"/>
-                            <Rectangle x:Name="Capital" HorizontalAlignment="Left" Height="35" Margin="10,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
-                            <Rectangle x:Name="LeftShift" HorizontalAlignment="Left" Height="35" Margin="10,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="88"/>
-                            <Rectangle x:Name="LeftCtrl" HorizontalAlignment="Left" Height="35" Margin="10,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                            <Rectangle x:Name="D1" HorizontalAlignment="Left" Height="35" Margin="50,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Q" HorizontalAlignment="Left" Height="35" Margin="71,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D2" HorizontalAlignment="Left" Height="35" Margin="90,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D3" HorizontalAlignment="Left" Height="35" Margin="130,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D4" HorizontalAlignment="Left" Height="35" Margin="170,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D5" HorizontalAlignment="Left" Height="35" Margin="210,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D6" HorizontalAlignment="Left" Height="35" Margin="250,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D7" HorizontalAlignment="Left" Height="35" Margin="290,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D8" HorizontalAlignment="Left" Height="35" Margin="330,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D9" HorizontalAlignment="Left" Height="35" Margin="370,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D0" HorizontalAlignment="Left" Height="35" Margin="410,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemMinus" HorizontalAlignment="Left" Height="35" Margin="450,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemPlus" HorizontalAlignment="Left" Height="35" Margin="490,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Back" HorizontalAlignment="Left" Height="35" Margin="530,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-                            <Rectangle x:Name="W" HorizontalAlignment="Left" Height="35" Margin="111,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="E" HorizontalAlignment="Left" Height="35" Margin="151,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="R" HorizontalAlignment="Left" Height="35" Margin="191,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="T" HorizontalAlignment="Left" Height="35" Margin="231,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Y" HorizontalAlignment="Left" Height="35" Margin="271,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="U" HorizontalAlignment="Left" Height="35" Margin="311,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="I" HorizontalAlignment="Left" Height="35" Margin="351,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="O" HorizontalAlignment="Left" Height="35" Margin="391,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="P" HorizontalAlignment="Left" Height="35" Margin="431,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemOpenBrackets" HorizontalAlignment="Left" Height="35" Margin="471,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Oem6" HorizontalAlignment="Left" Height="35" Margin="511,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Oem5" HorizontalAlignment="Left" Height="35" Margin="551,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="59"/>
-                            <Rectangle x:Name="A" HorizontalAlignment="Left" Height="35" Margin="90,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="S" HorizontalAlignment="Left" Height="35" Margin="130,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="D" HorizontalAlignment="Left" Height="35" Margin="170,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="F" HorizontalAlignment="Left" Height="35" Margin="210,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="G" HorizontalAlignment="Left" Height="35" Margin="250,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="H" HorizontalAlignment="Left" Height="35" Margin="290,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="J" HorizontalAlignment="Left" Height="35" Margin="330,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="K" HorizontalAlignment="Left" Height="35" Margin="370,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="L" HorizontalAlignment="Left" Height="35" Margin="410,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Oem1" HorizontalAlignment="Left" Height="35" Margin="450,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemQuotes" HorizontalAlignment="Left" Height="35" Margin="490,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Return" HorizontalAlignment="Left" Height="35" Margin="530,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-                            <Rectangle x:Name="Z" HorizontalAlignment="Left" Height="35" Margin="103,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="X" HorizontalAlignment="Left" Height="35" Margin="143,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="C" HorizontalAlignment="Left" Height="35" Margin="183,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="V" HorizontalAlignment="Left" Height="35" Margin="223,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="B" HorizontalAlignment="Left" Height="35" Margin="263,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="N" HorizontalAlignment="Left" Height="35" Margin="303,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="M" HorizontalAlignment="Left" Height="35" Margin="343,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemComma" HorizontalAlignment="Left" Height="35" Margin="383,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemPeriod" HorizontalAlignment="Left" Height="35" Margin="423,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="OemQuestion" HorizontalAlignment="Left" Height="35" Margin="463,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="RightShift" HorizontalAlignment="Left" Height="35" Margin="503,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="107"/>
-                            <Rectangle x:Name="LWin" HorizontalAlignment="Left" Height="35" Margin="66,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                            <Rectangle x:Name="Space" HorizontalAlignment="Left" Height="35" Margin="178,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="293"/>
-                            <Rectangle x:Name="Apps" HorizontalAlignment="Left" Height="35" Margin="476,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="61"/>
-                            <Rectangle x:Name="RightCtrl" HorizontalAlignment="Left" Height="35" Margin="542,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
-                            <Rectangle x:Name="Insert" HorizontalAlignment="Left" Height="35" Margin="635,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Home" HorizontalAlignment="Left" Height="35" Margin="674,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="PageUp" HorizontalAlignment="Left" Height="35" Margin="713,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Delete" HorizontalAlignment="Left" Height="35" Margin="635,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="End" HorizontalAlignment="Left" Height="35" Margin="674,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Next" HorizontalAlignment="Left" Height="35" Margin="713,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Left" HorizontalAlignment="Left" Height="35" Margin="635,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Down" HorizontalAlignment="Left" Height="35" Margin="674,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Right" HorizontalAlignment="Left" Height="35" Margin="713,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Up" HorizontalAlignment="Left" Height="35" Margin="674,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumLock" HorizontalAlignment="Left" Height="35" Margin="773,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Divide" HorizontalAlignment="Left" Height="35" Margin="812,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Multiply" HorizontalAlignment="Left" Height="35" Margin="851,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Subtract" HorizontalAlignment="Left" Height="35" Margin="890,61,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad7" HorizontalAlignment="Left" Height="35" Margin="773,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad8" HorizontalAlignment="Left" Height="35" Margin="812,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad9" HorizontalAlignment="Left" Height="35" Margin="851,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="Add" HorizontalAlignment="Left" Height="154" Margin="890,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad4" HorizontalAlignment="Left" Height="35" Margin="773,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad5" HorizontalAlignment="Left" Height="35" Margin="812,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad6" HorizontalAlignment="Left" Height="35" Margin="851,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad1" HorizontalAlignment="Left" Height="35" Margin="773,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad2" HorizontalAlignment="Left" Height="35" Margin="812,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad3" HorizontalAlignment="Left" Height="35" Margin="851,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="LeftAlt" HorizontalAlignment="Left" Height="35" Margin="122,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="51"/>
-                            <Rectangle x:Name="Decimal" HorizontalAlignment="Left" Height="35" Margin="851,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
-                            <Rectangle x:Name="NumPad0" HorizontalAlignment="Left" Height="35" Margin="773,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="74"/>
-
-                            <TextBlock HorizontalAlignment="Left" Margin="122,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F2"/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="161,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F3"/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="200,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F4"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="272,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F5"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="311,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F6"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="350,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F7"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="389,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F8"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="458,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F9"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="498,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F10"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="537,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"><Run Text="F11"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="577,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center"><Run Text="F12"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                            <Rectangle x:Name="Oem3" HorizontalAlignment="Left" Height="35" Stroke="Black" Width="35" VerticalAlignment="Top" Margin="10,61,0,0"/>
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="`" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center" Margin="12,66,0,0"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="52,66,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="92,66,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="132,66,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="172,66,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="212,66,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="252,66,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="292,66,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="332,66,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="372,66,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="412,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="452,66,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="492,66,0,0" TextWrapping="Wrap" Text="=" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="532,66,0,0" TextWrapping="Wrap" Text="←" VerticalAlignment="Top" Width="76" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="12,107,0,0" TextWrapping="Wrap" Text="Tab↹" VerticalAlignment="Top" Width="52" Height="27" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="73,106,0,0" TextWrapping="Wrap" Text="Q" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="113,106,0,0" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="153,106,0,0" TextWrapping="Wrap" Text="E" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="193,106,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="233,106,0,0" TextWrapping="Wrap" Text="T" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="273,106,0,0" TextWrapping="Wrap" Text="Y" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="313,106,0,0" TextWrapping="Wrap" Text="U" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="353,106,0,0" TextWrapping="Wrap" Text="I" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="393,106,0,0" TextWrapping="Wrap" Text="O" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="433,106,0,0" TextWrapping="Wrap" Text="P" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="473,106,0,0" TextWrapping="Wrap" Text="[" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="513,106,0,0" TextWrapping="Wrap" Text="]" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="553,106,0,0" TextWrapping="Wrap" Text="\" VerticalAlignment="Top" Width="55" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="12,146,0,0" TextWrapping="Wrap" Text="Caps ↑" VerticalAlignment="Top" Width="71" Height="27" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="92,145,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="132,145,0,0" TextWrapping="Wrap" Text="S" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="172,145,0,0" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="212,145,0,0" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="252,145,0,0" TextWrapping="Wrap" Text="G" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="292,145,0,0" TextWrapping="Wrap" Text="H" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="332,145,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="372,145,0,0" TextWrapping="Wrap" Text="K" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="412,145,0,0" TextWrapping="Wrap" Text="L" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="452,145,0,0" TextWrapping="Wrap" Text=";" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="492,145,0,0" TextWrapping="Wrap" Text="'" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="532,145,0,0" TextWrapping="Wrap" Text="↼ Enter" VerticalAlignment="Top" Width="76" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="12,185,0,0" TextWrapping="Wrap" Text="Shift" VerticalAlignment="Top" Width="84" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="105,185,0,0" TextWrapping="Wrap" Text="Z" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="145,185,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="185,185,0,0" TextWrapping="Wrap" Text="C" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="225,185,0,0" TextWrapping="Wrap" Text="V" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="265,185,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="305,185,0,0" TextWrapping="Wrap" Text="N" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="345,185,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="385,185,0,0" TextWrapping="Wrap" Text="," VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="425,185,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="465,185,0,0" TextWrapping="Wrap" Text="/" VerticalAlignment="Top" Width="31" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="505,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" Height="28" FontSize="17" TextAlignment="Center"><Run Text="Shift"/><LineBreak/><Run/></TextBlock>
-                            <TextBlock HorizontalAlignment="Left" Margin="12,225,0,0" TextWrapping="Wrap" Text="Ctrl" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="68,225,0,0" TextWrapping="Wrap" Text="⊞" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="124,225,0,0" TextWrapping="Wrap" Text="Alt" VerticalAlignment="Top" Width="47" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="478,225,0,0" TextWrapping="Wrap" Text="❏" VerticalAlignment="Top" Width="57" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="544,225,0,0" TextWrapping="Wrap" Text="Ctrl" VerticalAlignment="Top" Width="64" Height="28" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="637,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PrS"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="676,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Scrl"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="715,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PsB"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="637,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Ins"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="676,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Hm"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="715,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PgU"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="715,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="PgD"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="676,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="27" FontSize="17" TextAlignment="Center" Text="End"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="637,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Del"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="637,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="27" FontSize="17" TextAlignment="Center" Text="←"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="676,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="27" FontSize="17" TextAlignment="Center" Text="↑"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="715,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="27" FontSize="17" TextAlignment="Center" Text="→"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="676,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="26" FontSize="17" TextAlignment="Center" Text="↓"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="775,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="Nm"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="814,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="/"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="853,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="*"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="892,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="-"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="775,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="7"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="814,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="8"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="892,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="50" FontSize="17" TextAlignment="Center" Text="+"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="814,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="8"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="853,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="9"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="775,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="4"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="775,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="1"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="814,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="2"/>
                             <TextBlock HorizontalAlignment="Left" Margin="853,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="3"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="853,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="6"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="814,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="5"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="775,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="28" FontSize="17" TextAlignment="Center" Text="0"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="853,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31                                " Height="28" FontSize="17" TextAlignment="Center" Text="."/>
+
+                            <!--layer 1-->
+
+                            <Button x:Name="Escape" Content="Esc" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F1" Content="F1" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F2" Content="F2" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F3" Content="F3" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F4" Content="F4" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F5" Content="F5" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F6" Content="F6" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F7" Content="F7" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F8" Content="F8" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F9" Content="F9" HorizontalAlignment="Left" Margin="460,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F10" Content="F10" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F11" Content="F11" HorizontalAlignment="Left" Margin="540,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F12" Content="F12" HorizontalAlignment="Left" Margin="580,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <Button x:Name="Snapshot" Content="Prs" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Scroll" Content="Srcl" HorizontalAlignment="Left" Margin="675,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Pause" Content="PsBr" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+
+                            <!--layer 2-->
+
+                            <Button x:Name="Oem3" Content="`" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D1" Content="1" HorizontalAlignment="Left" Margin="50,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D2" Content="2" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D3" Content="3" HorizontalAlignment="Left" Margin="130,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D4" Content="4" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D5" Content="5" HorizontalAlignment="Left" Margin="210,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D6" Content="6" HorizontalAlignment="Left" Margin="250,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D7" Content="7" HorizontalAlignment="Left" Margin="290,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D8" Content="8" HorizontalAlignment="Left" Margin="330,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D9" Content="9" HorizontalAlignment="Left" Margin="370,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D0" Content="0" HorizontalAlignment="Left" Margin="410,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemMinus" Content="-" HorizontalAlignment="Left" Margin="450,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemPlus" Content="=" HorizontalAlignment="Left" Margin="490,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Back" Content="←" HorizontalAlignment="Left" Margin="530,60,0,0" VerticalAlignment="Top" Width="85" Height="35" FontSize="16"/>
+
+                            <Button x:Name="Insert" Content="Ins" HorizontalAlignment="Left" Margin="635,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Home" Content="Hm" HorizontalAlignment="Left" Margin="675,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="PageUp" Content="PgU" HorizontalAlignment="Left" Margin="715,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <Button x:Name="NumLock" Content="Nm" HorizontalAlignment="Left" Margin="770,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Divide" Content="/" HorizontalAlignment="Left" Margin="810,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Multiply" Content="*" HorizontalAlignment="Left" Margin="850,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Subtract" Content="-" HorizontalAlignment="Left" Margin="890,60,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+
+                            <!--layer 3-->
+
+                            <Button x:Name="Tab" Content="Tab↹" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="50" Height="35" FontSize="16"/>
+                            <Button x:Name="Q" Content="Q" HorizontalAlignment="Left" Margin="65,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="W" Content="W" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="E" Content="E" HorizontalAlignment="Left" Margin="145,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="R" Content="R" HorizontalAlignment="Left" Margin="185,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="T" Content="T" HorizontalAlignment="Left" Margin="225,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Y" Content="Y" HorizontalAlignment="Left" Margin="265,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="U" Content="U" HorizontalAlignment="Left" Margin="305,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="I" Content="I" HorizontalAlignment="Left" Margin="345,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="O" Content="O" HorizontalAlignment="Left" Margin="385,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="P" Content="P" HorizontalAlignment="Left" Margin="425,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemOpenBrackets" Content="[" HorizontalAlignment="Left" Margin="465,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Oem6" Content="]" HorizontalAlignment="Left" Margin="505,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Oem5" Content="\" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="70" Height="35" FontSize="16"/>
+
+                            <Button x:Name="Delete" Content="Del" HorizontalAlignment="Left" Margin="635,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="End" Content="End" HorizontalAlignment="Left" Margin="675,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Next" Content="PgD" HorizontalAlignment="Left" Margin="715,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <Button x:Name="NumPad7" Content="7" HorizontalAlignment="Left" Margin="770,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad8" Content="8" HorizontalAlignment="Left" Margin="810,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad9" Content="9" HorizontalAlignment="Left" Margin="850,100,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Add" Content="+" HorizontalAlignment="Left" Margin="890,60,0,0" VerticalAlignment="Top" Width="35" Height="195" FontSize="16"/>
+
+
+                            <!--layer 4-->
+
+                            <Button x:Name="Capital" Content="Caps ↑" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Width="65" Height="35" FontSize="16"/>
+                            <Button x:Name="A" Content="A" HorizontalAlignment="Left" Margin="80,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="S" Content="S" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="D" Content="D" HorizontalAlignment="Left" Margin="160,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="F" Content="F" HorizontalAlignment="Left" Margin="200,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="G" Content="G" HorizontalAlignment="Left" Margin="240,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="H" Content="H" HorizontalAlignment="Left" Margin="280,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="J" Content="J" HorizontalAlignment="Left" Margin="320,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="K" Content="K" HorizontalAlignment="Left" Margin="360,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="L" Content="L" HorizontalAlignment="Left" Margin="400,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Oem1" Content=";" HorizontalAlignment="Left" Margin="440,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemQuotes" Content="'" HorizontalAlignment="Left" Margin="480,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Return" Content="↼ Enter" HorizontalAlignment="Left" Margin="520,140,0,0" VerticalAlignment="Top" Width="95" Height="35" FontSize="16"/>
+
+                            <Button x:Name="NumPad4" Content="4" HorizontalAlignment="Left" Margin="770,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad5" Content="5" HorizontalAlignment="Left" Margin="810,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad6" Content="6" HorizontalAlignment="Left" Margin="850,140,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <!--layer 5-->
+
+                            <Button x:Name="LeftShift" Content="Shift" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="80" Height="35" FontSize="16"/>
+                            <Button x:Name="Z" Content="Z" HorizontalAlignment="Left" Margin="95,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="X" Content="X" HorizontalAlignment="Left" Margin="135,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="C" Content="C" HorizontalAlignment="Left" Margin="175,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="V" Content="V" HorizontalAlignment="Left" Margin="215,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="B" Content="B" HorizontalAlignment="Left" Margin="255,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="N" Content="N" HorizontalAlignment="Left" Margin="295,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="M" Content="M" HorizontalAlignment="Left" Margin="335,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemComma" Content="," HorizontalAlignment="Left" Margin="375,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemPeriod" Content="." HorizontalAlignment="Left" Margin="415,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="OemQuestion" Content="." HorizontalAlignment="Left" Margin="455,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="RightShift" Content="Shift" HorizontalAlignment="Left" Margin="495,180,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="16"/>
+
+                            <Button x:Name="Up" Content="↑" HorizontalAlignment="Left" Margin="675,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <Button x:Name="NumPad3" Content="3" HorizontalAlignment="Left" Margin="770,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad2" Content="2" HorizontalAlignment="Left" Margin="810,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="NumPad1" Content="1" HorizontalAlignment="Left" Margin="850,180,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+
+                            <!--layer 6-->
+
+                            <Button x:Name="LeftCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="65" Height="35" FontSize="16"/>
+                            <Button x:Name="LWin" Content="⊞" HorizontalAlignment="Left" Margin="80,220,0,0" VerticalAlignment="Top" Width="34" Height="35" FontSize="16"/>
+                            <Button x:Name="LeftAlt" Content="Alt" HorizontalAlignment="Left" Margin="119,220,0,0" VerticalAlignment="Top" Width="43" Height="35" FontSize="16"/>
+                            <Button x:Name="Apps" Content="❏" HorizontalAlignment="Left" Margin="476,220,0,0" VerticalAlignment="Top" Width="61" Height="35" FontSize="16"/>
+                            <Button x:Name="Space" Content="" HorizontalAlignment="Left" Margin="167,220,0,0" VerticalAlignment="Top" Width="304" Height="35" FontSize="16"/>
+                            <Button x:Name="RightCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="542,220,0,0" VerticalAlignment="Top" Width="73" Height="35" FontSize="16"/>
+
+                            <Button x:Name="Down" Content="↓" HorizontalAlignment="Left" Margin="675,220,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Right" Content="→" HorizontalAlignment="Left" Margin="715,220,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+                            <Button x:Name="Left" Content="←" HorizontalAlignment="Left" Margin="635,220,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
+                            <Button x:Name="NumPad0" Content="0" HorizontalAlignment="Left" Margin="770,220,0,0" VerticalAlignment="Top" Width="75" Height="35" FontSize="16"/>
+                            <Button x:Name="Decimal" Content="." HorizontalAlignment="Left" Margin="850,220,0,0" VerticalAlignment="Top" Width="35" Height="35" FontSize="16"/>
+
 
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="MouseGroupBox" Header="Mouse" Margin="965,4,0,0" HorizontalAlignment="Left" Width="162" Height="136" VerticalAlignment="Top">
+                    <GroupBox x:Name="MouseGroupBox" Header="Mouse" Margin="918,4,0,0" HorizontalAlignment="Left" Width="162" Height="136" VerticalAlignment="Top" Grid.Column="2">
                         <Grid>
-                            <Rectangle x:Name="M_Left" HorizontalAlignment="Left" Height="100" Margin="10,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="44"/>
-                            <Rectangle x:Name="M_Middle" HorizontalAlignment="Left" Height="56" Margin="59,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
-                            <Rectangle x:Name="M_Right" HorizontalAlignment="Left" Height="100" Margin="94,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="44"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="12,42,0,0" TextWrapping="Wrap" Text="L" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="96,42,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="40" Height="60" FontSize="17" TextAlignment="Center"/>
-                            <TextBlock Margin="61,19,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Height="39" FontSize="17" TextAlignment="Center" HorizontalAlignment="Left" Width="26"/>
+                            <Button x:Name="M_Left" Content="L" Margin="10,4,96,10"/>
+                            <Button x:Name="M_Middle" Content="M" Margin="59,4,61,49"/>
+                            <Button x:Name="M_Right" Content="R" Margin="94,4,10,10"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="Heatmap" Header="Heatmap" Margin="965,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="154" Width="162">
+                    <GroupBox x:Name="Heatmap" Header="Heatmap" Margin="918,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="154" Width="162" Grid.Column="2">
                         <Grid>
                             <Label Content="Mouse" Margin="0,66,0,0" VerticalAlignment="Top"/>
                             <Slider Margin="4,92,4,0" Value="2" ValueChanged="MouseSliderChanged" VerticalAlignment="Top" Ticks="1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3" TickPlacement="BottomRight" x:Name="mouseHeatmapSlider" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2"/>
@@ -262,7 +194,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                             <Label Content="Keyboard" Margin="0,7,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
-                    <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="377" Margin="10,299,0,39" HorizontalAlignment="Left">
+                    <ListView x:Name="displayKeyboardData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="377" Margin="10,299,0,39" HorizontalAlignment="Left" Grid.ColumnSpan="3">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Key" Width="150" DisplayMemberBinding="{Binding Key}">
@@ -290,7 +222,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                         </ListView.View>
                     </ListView>
 
-                    <ListView x:Name="displayCombinationData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="450" Margin="392,299,0,39" HorizontalAlignment="Left">
+                    <ListView x:Name="displayCombinationData" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Consolas" Width="450" Margin="345,299,0,39" HorizontalAlignment="Left" Grid.Column="2">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Combination" Width="200" DisplayMemberBinding="{Binding Combination}">
@@ -317,7 +249,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="847,299,0,39" FontFamily="Consolas" Width="280" HorizontalAlignment="Left">
+                    <ListView x:Name="displayMouseData" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="800,299,0,39" FontFamily="Consolas" Width="280" HorizontalAlignment="Left" Grid.Column="2">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="MouseButton" Width="90" DisplayMemberBinding="{Binding MouseButton}">
@@ -345,9 +277,9 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                         </ListView.View>
                     </ListView>
 
-                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="11,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas"/>
-                    <Label x:Name="combinationPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="393,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas"/>
-                    <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Width="198" FontFamily="Consolas" Margin="848,0,0,10" VerticalAlignment="Bottom"/>
+                    <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="11,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.ColumnSpan="3"/>
+                    <Label x:Name="combinationPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="346,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.Column="2"/>
+                    <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Width="198" FontFamily="Consolas" Margin="801,0,0,10" VerticalAlignment="Bottom" Grid.Column="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Monitor">

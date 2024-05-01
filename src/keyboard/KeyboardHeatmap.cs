@@ -13,6 +13,7 @@ namespace dankeyboard.src.keyboard
 
         private int totalKeyPresses = 0;
         private int totalCombinationPresses = 0;
+        private Grid keyboardGridGlobal;
         public class KeyItemData {
             public string? Key { get; set; }
             public int Count { get; set; }
@@ -29,6 +30,7 @@ namespace dankeyboard.src.keyboard
 
             totalKeyPresses = 0;
             totalCombinationPresses = 0;
+            keyboardGridGlobal = keyboardGrid;
 
             // get total number of key presses
             foreach (KeyValuePair<Key, int> key in keys) {
@@ -54,16 +56,19 @@ namespace dankeyboard.src.keyboard
             // loop through all keys and assign colors and fill table
             foreach (KeyValuePair<Key, int> key in keys) {
 
-                Rectangle? rectangle = keyboardGrid.FindName(key.Key.ToString()) as Rectangle;
+                Button? butt = keyboardGrid.FindName(key.Key.ToString()) as Button;
+
+
                 Debug.WriteLine(Math.Round(key.Value / (double)totalKeyPresses * heatmapStrength, 2));
                 double percentage = Math.Round(key.Value / (double)totalKeyPresses, 2);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
-                if (rectangle != null) {
-                    rectangle.Fill = new SolidColorBrush(color);
+                if (butt != null) {
+                    butt.Background = new SolidColorBrush(color);
+                    butt.Click += scrollToKey;
                 }
 
-                string p = percentage.ToString("0.00");
+                string p = (percentage * 100).ToString("0.00");
                 keyData.Add(new KeyItemData { Key = key.Key.ToString(), Count = key.Value, Percentage = $"{p}%" });
 
             }
@@ -72,7 +77,7 @@ namespace dankeyboard.src.keyboard
             foreach (KeyValuePair<KeyboardHook.Combination, int> combination in combinations) {
 
                 Debug.WriteLine(Math.Round(combination.Value / (double)totalCombinationPresses * heatmapStrength, 2));
-                double percentage = Math.Round(combination.Value / (double)totalCombinationPresses, 2);
+                double percentage = Math.Round(combination.Value / (double)totalCombinationPresses * 100, 2);
 
                 string p = percentage.ToString("0.00");
                 combinationData.Add(new CombinationItemData { Combination = combination.Key.ToString(), Count = combination.Value, Percentage = $"{p}%" });
@@ -85,6 +90,19 @@ namespace dankeyboard.src.keyboard
             combinationListView.ItemsSource = combinationData.OrderByDescending(item => item.Count).ToList();
 
 
+        }
+
+        private void scrollToKey(object sender, RoutedEventArgs e) {
+
+            ListView keyList = keyboardGridGlobal.FindName("displayKeyboardData") as ListView;
+            Button button = sender as Button;
+            foreach (KeyItemData item in keyList.Items) {
+                if (item.Key.Equals(button.Name)) {
+                    keyList.ScrollIntoView(item);
+                    keyList.SelectedItem = item;
+
+                }
+            }
         }
 
         private static string GenerateGradientColor(string color1Hex, string color2Hex, double percentage) {

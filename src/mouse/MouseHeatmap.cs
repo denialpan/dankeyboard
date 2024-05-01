@@ -40,28 +40,28 @@ namespace dankeyboard.src.mouse {
 
             foreach (KeyValuePair<MouseButton, int> mb in mouseButtons) {
 
-                Rectangle? rectangle;
+                Button? button;
                 double percentage = Math.Round(mb.Value / (double)totalMousePresses, 2);
                 Color color = (Color)ColorConverter.ConvertFromString(GenerateGradientColor("#FFFFFF", "#FF0000", percentage * heatmapStrength));
 
                 switch (mb.Key.ToString()) {
                     case "Left":
-                        rectangle = keyboardGrid.FindName("M_Left") as Rectangle;
-                        rectangle.Fill = new SolidColorBrush(color);
+                        button = keyboardGrid.FindName("M_Left") as Button;
+                        button.Background = new SolidColorBrush(color);
                         break;
                     case "Middle":
-                        rectangle = keyboardGrid.FindName("M_Middle") as Rectangle;
-                        rectangle.Fill = new SolidColorBrush(color);
+                        button = keyboardGrid.FindName("M_Middle") as Button;
+                        button.Background = new SolidColorBrush(color);
                         break;
                     case "Right":
-                        rectangle = keyboardGrid.FindName("M_Right") as Rectangle;
-                        rectangle.Fill = new SolidColorBrush(color);
+                        button = keyboardGrid.FindName("M_Right") as Button;
+                        button.Background = new SolidColorBrush(color);
                         break;
                     default:
                         break;
                 }
 
-                string p = percentage.ToString("0.00");
+                string p = (percentage * 100).ToString("0.00");
                 mouseData.Add(new DataItem { MouseButton = mb.Key.ToString(), Count = mb.Value, Percentage = $"{p}%" });
             }
 

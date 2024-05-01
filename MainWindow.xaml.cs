@@ -30,11 +30,21 @@ namespace dankeyboard
         private static Dictionary<KeyboardHook.Combination, int> combinationPresses;
         private static Dictionary<MouseButton, int>? mousePresses;
 
-        [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
-        {
-            public int X;
-            public int Y;
+        public struct MouseCoordinates {
+            public int X { get; set; }
+            public int Y { get; set; }
+
+            public void Serialize(BinaryWriter writer) {
+                writer.Write(X);
+                writer.Write(Y);
+            }
+
+            public static MouseCoordinates Deserialize(BinaryReader reader) {
+                return new MouseCoordinates {
+                    X = reader.ReadInt32(),
+                    Y = reader.ReadInt32(),
+                };
+            }
         }
 
         public MainWindow()
@@ -42,6 +52,28 @@ namespace dankeyboard
             InitializeComponent();
 
             GenerateHeatmap();
+
+            // Sample mouse coordinates
+            MouseCoordinates[] coordinates = new MouseCoordinates[]
+            {
+            new MouseCoordinates { X = 100, Y = 200 },
+            new MouseCoordinates { X = 150, Y = 250 }
+            };
+
+            // Serialize mouse coordinates to a binary file
+            using (BinaryWriter writer = new BinaryWriter(File.Open("mouse_coordinates.bin", FileMode.Create))) {
+                foreach (MouseCoordinates coord in coordinates) {
+                    coord.Serialize(writer);
+                }
+            }
+
+            // Deserialize mouse coordinates from the binary file
+            using (BinaryReader reader = new BinaryReader(File.Open("mouse_coordinates.bin", FileMode.Open))) {
+                while (reader.BaseStream.Position < reader.BaseStream.Length) {
+                    MouseCoordinates coord = MouseCoordinates.Deserialize(reader);
+                    Debug.WriteLine($"X: {coord.X}, Y: {coord.Y}");
+                }
+            }
 
             Loaded += StartDanKeyboard;
             Closed += CloseDanKeyboard;
@@ -67,11 +99,11 @@ namespace dankeyboard
             byte[] pixels = new byte[stride * bitmap.PixelHeight];
             for (int y = 0; y < bitmap.PixelHeight; y++) {
                 for (int x = 0; x < bitmap.PixelWidth; x++) {
-                    int index = (y * stride) + (x * 4);
-                    pixels[index] = 0x80; // Blue (50% intensity)
-                    pixels[index + 1] = 0x80; // Green (50% intensity)
-                    pixels[index + 2] = 0x80; // Red (50% intensity)
-                    pixels[index + 3] = 0xFF; // Alpha
+                    int rgba = (y * stride) + (x * 4);
+                    pixels[rgba] = 0x80; // Blue (50% intensity)
+                    pixels[rgba + 1] = 0x80; // Green (50% intensity)
+                    pixels[rgba + 2] = 0x80; // Red (50% intensity)
+                    pixels[rgba + 3] = 0xFF; // Alpha
                 }
             }
             bitmap.WritePixels(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight), pixels, stride, 0);
@@ -211,6 +243,21 @@ namespace dankeyboard
                 ICollectionView view = CollectionViewSource.GetDefaultView(displayCombinationData.ItemsSource);
                 view.SortDescriptions.Clear();
                 view.SortDescriptions.Add(new SortDescription(columnName, newSortDirection));
+            }
+        }
+
+        private void HighlightAndScrollToItem(string itemName) {
+            // Find the ListViewItem
+            foreach (var item in displayKeyboardData.Items) {
+                ListViewItem? listViewItem = displayKeyboardData.ItemContainerGenerator.ContainerFromItem(item) as ListViewItem;
+                if (listViewItem != null && item.ToString() == "A") {
+                    // Highlight the item
+                    listViewItem.Background = System.Windows.Media.Brushes.Yellow;
+
+                    // Scroll to the item
+                    listViewItem.BringIntoView();
+                    break;
+                }
             }
         }
 
