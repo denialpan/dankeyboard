@@ -312,7 +312,7 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                 TrayMouseDoubleClick="NotifyIcon_TrayMouseDoubleClick" d:IsHidden="True">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Close" Click="CloseMenuItem_Click"/>
+                    <MenuItem Header="Terminate" Click="CloseMenuItem_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
