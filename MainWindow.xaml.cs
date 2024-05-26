@@ -1,19 +1,13 @@
-﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Threading;
-using System.IO;
 using dankeyboard.src.keyboard;
 using dankeyboard.src.mouse;
-using Hardcodet.Wpf.TaskbarNotification;
 using System.ComponentModel;
-using System.Data;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
+using dankeyboard.src.monitor;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace dankeyboard
 {
@@ -23,118 +17,32 @@ namespace dankeyboard
         private static KeyboardHook? keyboardHook;
 
         private static MouseHook? mouseHook;
+        private static MonitorHeatmap? monitorHeatmap;
         private static MouseHeatmap? mouseHeatmap;
-
 
         private static Dictionary<Key, int>? keyPresses;
         private static Dictionary<KeyboardHook.Combination, int> combinationPresses;
         private static Dictionary<MouseButton, int>? mousePresses;
 
-        public struct MouseCoordinates {
-            public int X { get; set; }
-            public int Y { get; set; }
-
-            public void Serialize(BinaryWriter writer) {
-                writer.Write(X);
-                writer.Write(Y);
-            }
-
-            public static MouseCoordinates Deserialize(BinaryReader reader) {
-                return new MouseCoordinates {
-                    X = reader.ReadInt32(),
-                    Y = reader.ReadInt32(),
-                };
-            }
-        }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            GenerateHeatmap();
-
-            // Sample mouse coordinates
-            MouseCoordinates[] coordinates = new MouseCoordinates[]
-            {
-            new MouseCoordinates { X = 100, Y = 200 },
-            new MouseCoordinates { X = 150, Y = 250 }
-            };
-
-            // Serialize mouse coordinates to a binary file
-            using (BinaryWriter writer = new BinaryWriter(File.Open("mouse_coordinates.bin", FileMode.Create))) {
-                foreach (MouseCoordinates coord in coordinates) {
-                    coord.Serialize(writer);
-                }
-            }
-
-            // Deserialize mouse coordinates from the binary file
-            using (BinaryReader reader = new BinaryReader(File.Open("mouse_coordinates.bin", FileMode.Open))) {
-                while (reader.BaseStream.Position < reader.BaseStream.Length) {
-                    MouseCoordinates coord = MouseCoordinates.Deserialize(reader);
-                    Debug.WriteLine($"X: {coord.X}, Y: {coord.Y}");
-                }
-            }
+            // really quick fix for default values, will change later maybe
+            checkboxGaussian.IsChecked = true;
+            monitorDropdown.SelectedIndex = 0;
 
             Loaded += StartDanKeyboard;
             Closed += CloseDanKeyboard;
 
         }
 
-        private void GenerateHeatmap() {
-            // Create a writable bitmap with desired dimensions
-            int width = (int)SystemParameters.PrimaryScreenWidth;
-            int height = (int)SystemParameters.PrimaryScreenHeight;
-            WriteableBitmap heatmapBitmap = new WriteableBitmap(width, height, 96, 96, PixelFormats.Bgra32, null);
-
-            // Apply heatmap effect based on your data points
-            ApplyHeatmapEffect(heatmapBitmap);
-
-            // Display the heatmap image
-            heatmapImage.Source = heatmapBitmap;
-        }
-
-        private void ApplyHeatmapEffect(WriteableBitmap bitmap) {
-            // Fill the background with gray color
-            int stride = (bitmap.PixelWidth * bitmap.Format.BitsPerPixel + 7) / 8;
-            byte[] pixels = new byte[stride * bitmap.PixelHeight];
-            for (int y = 0; y < bitmap.PixelHeight; y++) {
-                for (int x = 0; x < bitmap.PixelWidth; x++) {
-                    int rgba = (y * stride) + (x * 4);
-                    pixels[rgba] = 0x80; // Blue (50% intensity)
-                    pixels[rgba + 1] = 0x80; // Green (50% intensity)
-                    pixels[rgba + 2] = 0x80; // Red (50% intensity)
-                    pixels[rgba + 3] = 0xFF; // Alpha
-                }
-            }
-            bitmap.WritePixels(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight), pixels, stride, 0);
-
-            // Draw dots on top of the gray background
-            int dotSize = 5; // Size of the dots
-            for (int i = 0; i < 5; i++) {
-                int centerX = 50 * (i + 1); // X-coordinate of the center of the dot
-                int centerY = 100; // Y-coordinate of the center of the dot
-
-                // Loop through the area of the dot to set pixels
-                for (int y = centerY - dotSize / 2; y < centerY + dotSize / 2; y++) {
-                    for (int x = centerX - dotSize / 2; x < centerX + dotSize / 2; x++) {
-                        if (x >= 0 && x < bitmap.PixelWidth && y >= 0 && y < bitmap.PixelHeight) {
-                            int index = (y * stride) + (x * 4);
-                            pixels[index] = 0xFF; // Blue
-                            pixels[index + 1] = 0x00; // Green
-                            pixels[index + 2] = 0x00; // Red
-                            pixels[index + 3] = 0xFF; // Alpha
-                        }
-                    }
-                }
-            }
-
-            bitmap.WritePixels(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight), pixels, stride, 0);
-        }
-
+        // start all keyboard and mouse hooks
         private void StartDanKeyboard(object sender, RoutedEventArgs e) {
 
             keyboardHook = new KeyboardHook();
-            keyboardHook.StartKeyboardHook();
+            keyboardHook.StartKeyboardHook(KeyboardMouseTab);
             keyPresses = keyboardHook.getKeyPressData();
             combinationPresses = keyboardHook.getCombinationData();
 
@@ -142,12 +50,16 @@ namespace dankeyboard
             keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
 
             mouseHook = new MouseHook();
-            mouseHook.StartMouseHook();
+            mouseHook.StartMouseHook(KeyboardMouseTab);
             mousePresses = mouseHook.getMousePressData();
 
             mouseHeatmap = new MouseHeatmap();
             mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
 
+            monitorHeatmap = new MonitorHeatmap();
+            monitorHeatmap.ColorHeatmap(MonitorTab);
+            monitorHeatmap.getMonitors(monitorDropdown);
+            
         }
 
         private void CloseDanKeyboard(object? sender, EventArgs e) {
@@ -159,22 +71,20 @@ namespace dankeyboard
             }
         }
 
-        // Minimize to system tray when application is minimized.
+        // minimize to system tray when application is minimized
         protected override void OnStateChanged(EventArgs e) {
             if (WindowState == WindowState.Minimized) {
-                Hide(); // Hide the main window
-                notifyIcon.Visibility = Visibility.Visible; // Show the NotifyIcon in the system tray
-
-  
-
+                Hide();
+                notifyIcon.Visibility = Visibility.Visible; // show NotifyIcon in the system tray
             }
 
             base.OnStateChanged(e);
         }
 
+        // show when NotifyIcon is double clicked
         private void NotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e) {
-            // Show the main window when the NotifyIcon is double-clicked
-            //refresh heatmaps and save data
+            
+            // refresh heatmaps and save data
             keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
             mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
             keyboardHook.SaveToCSV();
@@ -182,15 +92,18 @@ namespace dankeyboard
 
             Show();
             WindowState = WindowState.Normal;
-            Activate(); // Bring the window to the front
+            Activate();
+
         }
 
+        // shut down option on NotifyIcon right click
         private void CloseMenuItem_Click(object sender, RoutedEventArgs e) {
             keyboardHook.SaveToCSV();
             mouseHook.SaveToCSV();
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
+        // sort keyboard table data
         private void SortKeyboardData(object sender, RoutedEventArgs e) {
 
             var columnHeader = sender as GridViewColumnHeader;
@@ -210,6 +123,7 @@ namespace dankeyboard
             }
         }
 
+        // sort mouse table data
         private void SortMouseData(object sender, RoutedEventArgs e) {
             var columnHeader = sender as GridViewColumnHeader;
             string? columnName = columnHeader?.Content as string;
@@ -228,6 +142,7 @@ namespace dankeyboard
             }
         }
 
+        // sort combination table data
         private void SortCombinationData(object sender, RoutedEventArgs e) {
             var columnHeader = sender as GridViewColumnHeader;
             string? columnName = columnHeader?.Content as string;
@@ -246,30 +161,53 @@ namespace dankeyboard
             }
         }
 
-        private void HighlightAndScrollToItem(string itemName) {
-            // Find the ListViewItem
-            foreach (var item in displayKeyboardData.Items) {
-                ListViewItem? listViewItem = displayKeyboardData.ItemContainerGenerator.ContainerFromItem(item) as ListViewItem;
-                if (listViewItem != null && item.ToString() == "A") {
-                    // Highlight the item
-                    listViewItem.Background = System.Windows.Media.Brushes.Yellow;
-
-                    // Scroll to the item
-                    listViewItem.BringIntoView();
-                    break;
-                }
-            }
-        }
-
+        // on keyboard slider heatmap intensity change
         private void KeyboardSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             if (keyboardHeatmap != null && keyPresses != null) { 
                 keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
             }
         }
-
+        // on mouse slider heatmap intensity change
         private void MouseSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             if (mouseHeatmap != null && mousePresses != null) {
                 mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
+            }
+        }
+
+        // load heatmap
+        private void buttonLoadHeatmap_Click(object sender, RoutedEventArgs e) {
+            monitorHeatmap.ColorHeatmap(MonitorTab);
+        }
+
+        // options window
+        private void Options_click(object sender, RoutedEventArgs e) {
+            Options optionsWindow = new Options();
+            optionsWindow.Closed += OptionsWindow_Closed;
+            optionsWindow.ShowDialog();
+        }
+
+        // on options closed
+        private void OptionsWindow_Closed(object sender, EventArgs e) {
+            if (keyboardHeatmap != null && keyPresses != null) {
+                keyboardHeatmap.ColorHeatmap(KeyboardMouseTab, keyPresses, combinationPresses);
+            }
+            if (mouseHeatmap != null && mousePresses != null) {
+                mouseHeatmap.ColorHeatmap(KeyboardMouseTab, mousePresses);
+            }
+        }
+
+        // open directory data folder
+        private void OpenDataDirectory(object sender, RoutedEventArgs e) {
+            string directoryPath = @"dankeyboard_data";
+
+            try {
+                Process.Start(new ProcessStartInfo {
+                    FileName = directoryPath,
+                    UseShellExecute = true,
+                    Verb = "open"
+                });
+            } catch (Exception ex) {
+                Debug.WriteLine($"Failed to open directory: {ex.Message}");
             }
         }
     }

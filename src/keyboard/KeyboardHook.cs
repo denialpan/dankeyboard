@@ -1,14 +1,15 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.IO;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Xml.Linq;
+using dankeyboard.src.history;
+using System.Windows.Controls;
 
 namespace dankeyboard.src.keyboard {
+
+    // keyboard detection and saving data
     public class KeyboardHook {
 
         private const int WH_KEYBOARD_LL = 13;
@@ -18,9 +19,13 @@ namespace dankeyboard.src.keyboard {
         private static LowLevelKeyboardProc proc = HookCallback;
 
         private DispatcherTimer? keyboardTimer;
-        private static HashSet<Key> pressedKeys = new HashSet<Key>();
+        private static HashSet<Key> pressedKeys = new HashSet<Key>(); // set contains pressed keys to avoid spamming counts when key is held down
         private static Dictionary<Key, int> keyPressCounts = new Dictionary<Key, int>();
         private static Dictionary<Combination, int> combinationCounts = new Dictionary<Combination, int>();
+
+        private static Grid kb;
+
+        // custom object to store data about a combination
         public class Combination : IEquatable<Combination> { 
 
             public string? Key { get; set; }
@@ -51,11 +56,15 @@ namespace dankeyboard.src.keyboard {
 
         }
 
-
-        public void StartKeyboardHook() {
+        public void StartKeyboardHook(Grid keyboardGrid) {
 
             hookId = SetHook(proc);
 
+            kb = keyboardGrid;
+            
+            // this keyboard timer exists solely to detect alt tab keys
+            // detecting alt key presses even at low hook level seems to be difficult, as programs override or await extra keys
+            // setting a timer every 50ms to check if alt key state is down, which is much slower and worse than hook checking
             keyboardTimer = new DispatcherTimer();
             keyboardTimer.Interval = TimeSpan.FromMilliseconds(50);
             keyboardTimer.Tick += DetectTabAlt;
@@ -63,10 +72,9 @@ namespace dankeyboard.src.keyboard {
 
             string filePath = "dankeyboard_data/keys.csv";
             if (File.Exists(filePath)) {
-                // Read CSV file and populate dictionary
+                // parse CSV file and populate dictionary
                 var lines = File.ReadAllLines(filePath);
-                foreach (var line in lines.Skip(1)) // Skip header
-                {
+                foreach (var line in lines.Skip(1)) { // skip header of Key, Value
                     var parts = line.Split(',');
                     if (parts.Length == 2 && Enum.TryParse(parts[0], out Key key) && int.TryParse(parts[1], out int count)) {
                         keyPressCounts[key] = count;
@@ -76,15 +84,13 @@ namespace dankeyboard.src.keyboard {
 
             filePath = "dankeyboard_data/combination.csv";
             if (File.Exists(filePath)) {
-                // Read CSV file and populate dictionary
+                // parse CSV file and populate dictionary
                 var lines = File.ReadAllLines(filePath);
-                foreach (var line in lines.Skip(1)) // Skip header
-                {
+                foreach (var line in lines.Skip(1)) { // skip header of Combination, Value
                     var parts = line.Split(',');
                     if (parts.Length == 2 && parts[0] is string && int.TryParse(parts[1], out int count)) {
 
                         string entry = parts[0];
-
                         var keys = entry.Split(' ');
                         Debug.WriteLine(entry);
 
@@ -94,7 +100,6 @@ namespace dankeyboard.src.keyboard {
                     }
                 }
             }
-
         }
 
         public void CloseKeyboardHook() {
@@ -138,6 +143,8 @@ namespace dankeyboard.src.keyboard {
 
                         }
                         Debug.WriteLine($"Key: {altKey}, Modifiers: {modifierKeys}");
+                        HistoryConsole.updateConsole(kb, $"{altKey} pressed");
+
                     }
                     break;
 
@@ -165,6 +172,7 @@ namespace dankeyboard.src.keyboard {
 
                         }
                         Debug.WriteLine($"Key: {tabKey}, Modifiers: {modifierKeys}");
+                        HistoryConsole.updateConsole(kb, $"{tabKey} pressed");
                     }
                     break;
             }
@@ -172,22 +180,26 @@ namespace dankeyboard.src.keyboard {
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam) {
 
+            // on key release
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP) {
                 int vkCode = Marshal.ReadInt32(lParam);
                 Key key = KeyInterop.KeyFromVirtualKey(vkCode);
 
+                // allows for the key to be pressed again
                 if (pressedKeys.Contains(key)) {
                     pressedKeys.Remove(key);
                 }
 
             }
 
+            // on key down
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) {
 
                 int vkCode = Marshal.ReadInt32(lParam);
                 Key key = KeyInterop.KeyFromVirtualKey(vkCode);
                 ModifierKeys modifierKeys = Keyboard.Modifiers & ~ModifierKeys.Alt;
 
+                // if key is not currently pressed down to avoid spamming counts
                 if (!pressedKeys.Contains(key) && key != Key.Tab) {
 
                     if (keyPressCounts.ContainsKey(key)) {
@@ -195,8 +207,10 @@ namespace dankeyboard.src.keyboard {
                     } else {
                         keyPressCounts[key] = 1;
                     }
+
                     pressedKeys.Add(key);
 
+                    // detect modifier keys (only ctrl and shift)
                     if (modifierKeys != ModifierKeys.None) {
 
                         Debug.WriteLine(modifierKeys.ToString());
@@ -208,13 +222,18 @@ namespace dankeyboard.src.keyboard {
                         } else {
                             combinationCounts[c] = 1;
                             Debug.Write(combinationCounts[c]);
-
                         }
-
 
                     }
 
                     Debug.WriteLine($"Key: {key}, Modifiers: {modifierKeys}");
+
+                    if (modifierKeys != ModifierKeys.None) {
+                        HistoryConsole.updateConsole(kb, $"{key} + {modifierKeys} pressed");
+                    } else { 
+                        HistoryConsole.updateConsole(kb, $"{key} pressed");
+                    }
+
                 }
 
             }
@@ -232,9 +251,11 @@ namespace dankeyboard.src.keyboard {
             fileName = "keys.csv";
             filePath = Path.Combine(folderPath, fileName);
             csvContent.AppendLine("KeyCode,Count");
+
             foreach (var kvp in keyPressCounts) {
                 csvContent.AppendLine($"{kvp.Key},{kvp.Value}");
             }
+
             Directory.CreateDirectory(folderPath);
             File.WriteAllText(filePath, csvContent.ToString());
 
@@ -243,9 +264,11 @@ namespace dankeyboard.src.keyboard {
             fileName = "combination.csv";
             filePath = Path.Combine(folderPath, fileName);
             csvContent.AppendLine("Combination,Count");
+
             foreach (var c in combinationCounts) {
                 csvContent.AppendLine($"{c.Key.Modifier} {c.Key.Key},{c.Value}");
             }
+
             Directory.CreateDirectory(folderPath);
             File.WriteAllText(filePath, csvContent.ToString());
 
@@ -281,6 +304,5 @@ namespace dankeyboard.src.keyboard {
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
-
     }
 }

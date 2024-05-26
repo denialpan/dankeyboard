@@ -9,8 +9,13 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.IO;
+using System.Windows.Forms;
+using System.Windows.Controls;
+using dankeyboard.src.history;
 
 namespace dankeyboard.src.mouse {
+
+    // mouse detection and saving data
     public class MouseHook {
 
         private const int WH_MOUSE_LL = 14;
@@ -22,16 +27,32 @@ namespace dankeyboard.src.mouse {
         private static int _hookHandle = 0;
         private static HookProc _hookProc = HookCallback;
         private static Dictionary<MouseButton, int> mousePressCounts = new Dictionary<MouseButton, int>();
+        private static List<ClickInformation> monitorClicks = new List<ClickInformation>();
 
-        public void StartMouseHook() {
+        private static Grid kb = new Grid();
+
+        // custom object to store data about a mouse coordinate on monitor and the monitor clicked on
+        public class ClickInformation { 
+            public double x; 
+            public double y;
+            public int monitor;
+        }
+
+        public void StartMouseHook(Grid keyboardGrid) {
             _hookHandle = SetHook(_hookProc);
+
+            kb = keyboardGrid;
+
+            // needs to randomly clear the console of all text, doesn't seem to be a way to set no text as default...?
+            System.Windows.Controls.RichTextBox? historyConsole = kb.FindName("displayHistory") as System.Windows.Controls.RichTextBox;
+            historyConsole.Document.Blocks.Clear();
+            historyConsole.AppendText("\n");
 
             string filePath = "dankeyboard_data/mouse.csv";
             if (File.Exists(filePath)) {
-                // Read CSV file and populate dictionary
+                // read CSV file and populate dictionary
                 var lines = File.ReadAllLines(filePath);
-                foreach (var line in lines.Skip(1)) // Skip header
-                {
+                foreach (var line in lines.Skip(1)) { // skip header of Mouse, Value
                     var parts = line.Split(',');
                     if (parts.Length == 2 && Enum.TryParse(parts[0], out MouseButton mb) && int.TryParse(parts[1], out int count)) {
                         mousePressCounts[mb] = count;
@@ -47,12 +68,28 @@ namespace dankeyboard.src.mouse {
 
         private static int HookCallback(int nCode, IntPtr wParam, IntPtr lParam) {
             if (nCode >= 0 && (wParam == (IntPtr)WM_LBUTTONDOWN || wParam == (IntPtr)WM_RBUTTONDOWN || wParam == (IntPtr)WM_MBUTTONDOWN)) {
-                // Extracting mouse coordinates from lParam
+                
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-                int x = hookStruct.pt.x;
-                int y = hookStruct.pt.y;
+                
+                // current screen that was clicked on
+                Screen currentScreen = Screen.FromPoint(System.Windows.Forms.Cursor.Position);
+                // identify screen clicked by index
+                int monitorIndex = Array.IndexOf(Screen.AllScreens, currentScreen);
 
-                // Determine which mouse button was clicked
+                // get relative X and Y positions in monitor's bounds
+                double relativeX = Math.Round((double)(hookStruct.pt.x - currentScreen.Bounds.Left) / currentScreen.Bounds.Width, 2);
+                double relativeY = Math.Round((double)(hookStruct.pt.y - currentScreen.Bounds.Top) / currentScreen.Bounds.Height, 2);
+
+                Debug.WriteLine($"{relativeX}, {relativeY} on screen {monitorIndex}");
+
+                ClickInformation clickInformation = new ClickInformation();
+                clickInformation.x = relativeX;
+                clickInformation.y = relativeY;
+                clickInformation.monitor = monitorIndex;
+
+                monitorClicks.Add(clickInformation);
+
+                // get mouse button clicked
                 MouseButton buttonClicked;
                 switch ((int)wParam) {
                     case WM_LBUTTONDOWN:
@@ -71,20 +108,20 @@ namespace dankeyboard.src.mouse {
 
                 if (mousePressCounts.ContainsKey(buttonClicked)) {
                     mousePressCounts[buttonClicked]++;
-                    Debug.WriteLine(mousePressCounts[buttonClicked]);
                 } else {
                     mousePressCounts[buttonClicked] = 1;
-                    Debug.WriteLine(mousePressCounts[buttonClicked]);
-
                 }
 
-                Debug.WriteLine($"Mouse button {buttonClicked} clicked at ({x}, {y})");
+                HistoryConsole.updateConsole(kb, $"{buttonClicked} clicked");
             }
             return CallNextHookEx(_hookHandle, nCode, wParam, lParam);
         }
+
         public void SaveToCSV() {
+
             StringBuilder csvContent = new StringBuilder();
             csvContent.AppendLine("KeyCode,Count");
+
             foreach (var kvp in mousePressCounts) {
                 csvContent.AppendLine($"{kvp.Key},{kvp.Value}");
             }
@@ -92,12 +129,29 @@ namespace dankeyboard.src.mouse {
             string folderPath = "dankeyboard_data";
             string fileName = "mouse.csv";
             string filePath = Path.Combine(folderPath, fileName);
+
             Directory.CreateDirectory(folderPath);
             File.WriteAllText(filePath, csvContent.ToString());
+
+            // bin filename
+            filePath = Path.Combine(folderPath, "mouse_coordinates.bin");  
+
+            // write monitor clicks to binary file
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Append))) {
+                foreach (ClickInformation click in monitorClicks) {
+                    writer.Write(click.x);
+                    writer.Write(click.y);
+                    writer.Write(click.monitor);
+                }
+            }
         }
 
         public Dictionary<MouseButton, int> getMousePressData() {
             return mousePressCounts;
+        }
+
+        public List<ClickInformation> getMonitorClicksData() {
+            return monitorClicks;
         }
 
         // Structure for mouse hook data

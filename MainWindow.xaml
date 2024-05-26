@@ -1,11 +1,13 @@
-﻿<Window x:Name="dankeyboard" 
-        x:Class="dankeyboard.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dankeyboard"
         xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime"
+        x:Class="dankeyboard.MainWindow"
         mc:Ignorable="d"
         
         Title="dankeyboard" MinHeight="640" Height="640" MinWidth="1160" Width="1375" ResizeMode="CanResizeWithGrip" Background="White" ShowInTaskbar="False" Icon="/dankeyboard.ico">
@@ -13,17 +15,15 @@
     <Grid>
 
 
-        <Menu Height="24" Name="Menu" VerticalAlignment="Top" Background="#FFFFFF">
+        <Menu Height="24" x:Name="Menu" VerticalAlignment="Top" Background="#FFFFFF">
 
             <MenuItem Header="_File">
-                <MenuItem Header="_Import Keyboard Data"/>
+                <!--<MenuItem Header="_Import Keyboard Data"/>
                 <MenuItem Header="_Import Mouse Data"/>
-                <Separator/>
-                <MenuItem Header="_Open Current Data Directory"/>
+                <Separator/>-->
+                <MenuItem Header="_Open Current Data Directory" Click="OpenDataDirectory"/>
             </MenuItem>
-            <MenuItem Header="_Options">
-
-            </MenuItem>
+            <MenuItem Header="_Options" Click="Options_click"/>
 
         </Menu>
         <TabControl Margin="0,24,0,0">
@@ -275,13 +275,33 @@ Ticks="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" Minimum="1" ValueChanged="KeyboardSliderCh
                     <Label x:Name="keyboardPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="11,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Grid.ColumnSpan="3" Height="24"/>
                     <Label x:Name="combinationPressesTotal" Content="Label" HorizontalAlignment="Left" Margin="392,0,0,10" VerticalAlignment="Bottom" Width="198" FontFamily="Consolas" Height="24"/>
                     <Label x:Name="mousePressesTotal" Content="Label" HorizontalAlignment="Left" Width="198" FontFamily="Consolas" Margin="844,0,0,10" VerticalAlignment="Bottom" Height="24"/>
+                    <RichTextBox x:Name="displayHistory" Margin="1129,10,10,39" IsReadOnly="True" Background="#EEEEEE" FontFamily="Consolas" Foreground="Black" FontSize="14" VerticalScrollBarVisibility="Visible" IsUndoEnabled="False">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Monitor">
-                <Grid Background="#FFFFFF">
-
-                    <Image x:Name="heatmapImage" Margin="11,11,11,11" />
-
+                <Grid x:Name="MonitorTab" Background="#FFFFFF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1242*"/>
+                        <ColumnDefinition Width="127*"/>
+                    </Grid.ColumnDefinitions>
+                    <oxy:PlotView x:Name="displayPlot"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="480" Width="853" Margin="10,10,0,0" DefaultTrackerTemplate="{x:Null}"/>
+                    <GroupBox Header="Heatmap" Margin="868,10,10,286" Grid.ColumnSpan="2">
+                        <Grid>
+                            <ComboBox x:Name="monitorDropdown" HorizontalAlignment="Left" Margin="10,10,0,0" Width="164" VerticalAlignment="Top"/>
+                            <Button x:Name="buttonLoadHeatmap" Content="Load" HorizontalAlignment="Left" Margin="180,11,0,0" VerticalAlignment="Top" Width="60" Click="buttonLoadHeatmap_Click"/>
+                            <CheckBox x:Name="checkboxGaussian" Content="Smooth Heatmap (Gaussian)" HorizontalAlignment="Left" Margin="252,11,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Blur Intensity" HorizontalAlignment="Left" Margin="252,44,0,0" VerticalAlignment="Top" Width="150"/>
+                            <Label Content="Blur Radius" HorizontalAlignment="Left" Margin="252,114,0,0" VerticalAlignment="Top" Width="150"/>
+                            <Slider x:Name="sliderDeviation" HorizontalAlignment="Left" Margin="252,75,0,0" VerticalAlignment="Top" Width="120" IsSnapToTickEnabled="True" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2" Value="5" Ticks="1, 2, 3, 4, 5" Minimum="1" Maximum="5"/>
+                            <Slider x:Name="sliderSigma" HorizontalAlignment="Left" Margin="252,140,0,0" VerticalAlignment="Top" Width="120" IsSnapToTickEnabled="True" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="2" Value="5" Ticks="1, 2, 3, 4, 5" Minimum="1" Maximum="5"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
         </TabControl>
