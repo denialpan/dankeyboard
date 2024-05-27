@@ -69,7 +69,7 @@ Terminating the process through `Task Manager` is also viable, but some recorded
 
 This program performs no calculations or writing to files when minimized/running in the background. This is intentional to avoid performing computationally intensive tasks, primarily type `double` division and the updating of heatmaps. This also means that heatmaps do not update until the program is brought back into focus.
 
-_Methods of when heatmaps update may be added as user settings._
+_Methods of when heatmaps update may be added as user settings in future releases._
 
 ### How can I minimize the program to be a background process?
 
@@ -77,7 +77,7 @@ _Methods of when heatmaps update may be added as user settings._
 
 ### The program is not updating colors or heatmaps when I type or click!
 
-This is intended, as the program is currently set to only update heatmaps and _**SAVE YOUR INPUT ACTIVITY**_ when the program is either:
+This is intended, as the program is currently set to only update heatmaps and _**save your input activity**_ when the program is either:
 
 - Brought back into focus from being minimized.
 - Clicking the `X` button on the top right of the program window.
