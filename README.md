@@ -61,7 +61,7 @@ There are two definitive ways to terminate the program's entire process and reco
 - Clicking the `X` button on the top right of the program window.
 - Right clicking on the icon in the taskbar system tray and selecting `Terminate`.
 
-Terminating the process through `Task Manager` is also viable, but some recorded input activity may be lost. [See here for why](#Does-this-program-use-a-lot-of-CPU-and-RAM).
+Terminating the process through `Task Manager` is also viable, but some recorded input activity may be lost. [See here for why](#The-program-is-not-updating-colors-or-heatmaps-when-I-type-or-click).
 
 ## General 
 
