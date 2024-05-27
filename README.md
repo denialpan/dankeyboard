@@ -2,6 +2,9 @@
 
 ## (BETA) Personal mouse and keyboard activity logger. Completely free and open-source alternative to other commercial loggers.
 
+![dankeyboard 1](https://github.com/denialpan/dankeyboard/blob/8161944733f84baedb0fc040e50f6bb9bf3df5a0/image%20showcase/dankeyboard_ziKUz5FHji.png)
+![dankeyboard 2](https://github.com/denialpan/dankeyboard/blob/8161944733f84baedb0fc040e50f6bb9bf3df5a0/image%20showcase/dankeyboard_G1f2LPOzLt.png)
+
 # FAQ:
 
 ## Privacy & Safety (READ)
