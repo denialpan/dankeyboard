@@ -34,7 +34,7 @@ Furthermore, there are no methods to save the literal text or string recorded, i
 
 ### VirusTotal detected something malicious!
 
-[VirusTotal](https://www.virustotal.com/) is a very good tool and using it is recommended, but similar to all virus detection tools, it will occasionally have false positives. Unfortunately, the behavior of this program is inherently similar to malicious keyloggers and other malware, especially due to the low level input detection method mentioned [above](). However, the similarity between this program and other keyloggers/commercial software ends here. 
+[VirusTotal](https://www.virustotal.com/) is a very good tool and using it is recommended, but similar to all virus detection tools, it will occasionally have false positives. Unfortunately, the behavior of this program is inherently similar to malicious keyloggers and other malware, especially due to the low level input detection method mentioned above. However, the similarity between this program and other keyloggers/commercial software ends here. 
 
 ### How are my keyboard and mouse input saved?
 
