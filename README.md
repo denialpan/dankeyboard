@@ -83,13 +83,13 @@ This is intended, as the program is currently set to only update heatmaps and _*
 - Clicking the `X` button on the top right of the program window.
 - Terminated by right clicking the program icon in the taskbar system tray and clicking "Terminate"
 
-_This also means that terminating the program through `Task Manager` may result in input activity loss. There is no saving method tied to ending a process from outside._
+_This also means that terminating the program through `Task Manager` may result in input activity loss. There is no saving method tied to ending the process from outside._
 
 # Install
 
 ### Download 
 
-To ensure that you download a safe version, only download from this repository's releases page. Each release will have its respective **SHA256** and a VirusTotal listed as well. 
+To ensure that you download a safe version, only download from this repository's [releases](https://github.com/denialpan/dankeyboard/releases) page. Each release will have its respective safe **SHA256** and a VirusTotal listed as well. 
 
 ### Build and Compile
 
