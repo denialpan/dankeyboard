@@ -8,6 +8,7 @@ using System.Windows.Data;
 using dankeyboard.src.monitor;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace dankeyboard
 {
@@ -32,6 +33,12 @@ namespace dankeyboard
             // really quick fix for default values, will change later maybe
             checkboxGaussian.IsChecked = true;
             monitorDropdown.SelectedIndex = 0;
+
+            // initialize data folder to fix crashing on fresh install
+            string dataFolder = @".\dankeyboard_data";
+            if (!Directory.Exists(dataFolder)) {
+                Directory.CreateDirectory(dataFolder);
+            }
 
             Loaded += StartDanKeyboard;
             Closed += CloseDanKeyboard;
