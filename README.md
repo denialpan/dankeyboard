@@ -16,7 +16,7 @@ This project's intent is to be a **completely free** alternative to commercial l
   - There is no detection for what brand of hardware or software you are running.
   - There is no detection for what programs are running on your computer.
   - There is no detection of related cookies, cache, session data, etc. 
-  - No files are modified, read, or written to **except** for these listed [here](#How-are-my-keyboard-and-mouse-input-saved?).
+  - No files are modified, read, or written to **except** for these listed [here](#how-are-my-keyboard-and-mouse-input-saved).
 - No elevated administrative powers are required for this program to function.
 - The program and its related folder and files are free to permanently delete at any point.
 
@@ -90,3 +90,19 @@ _This also means that terminating the program through `Task Manager` may result 
 ### Download 
 
 To ensure that you download a safe version, only download from this repository's releases page. Each release will have its respective **SHA256** and a VirusTotal listed as well. 
+
+### Build and Compile
+
+1. Download or clone the repository.
+2. Open `dankeyboard.sln` in Visual Studio.
+3. In the solution explorer, right click the solution project.
+4. Select `Build Solution`
+5. In the solution explorer, right click the `dankeyboard` application file.
+6. Select `Publish...`
+7. Follow the instructions to compile locally on your machine.
+
+# Contribution/Suggestions
+
+Pull requests will heavily reviewed to keep the safety and integrity of this project. 
+
+If there is a feature you'd like to see or a suggestion you have, make a pull request with the suggestion as the title; no code is necessary.
